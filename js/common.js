@@ -5,11 +5,6 @@ function toggleMenu() {
     document.body.classList.toggle("open");
 }
 
-// Homepage redirect function
-function goToHome() {
-    window.location.href = 'index.html';
-}
-
 // Close menu when clicking on menu items
 document.addEventListener('DOMContentLoaded', function() {
     // Set current year in footer
