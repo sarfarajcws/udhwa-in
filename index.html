@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>udhwa.in - Your Digital Hub for Udhwa News, Blogs & Listings</title>
+    <meta name="description" content="Stay updated with Udhwa and Jharkhand's latest news, explore blogs, discover local listings, and find essential services - all in one place.">
+    <meta name="keywords" content="Udhwa, Jharkhand, Sahibganj, Udhwa news, Udhwa blogs, local listings">
+    <meta name="author" content="Sarfaraj Alam">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/home.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="logo">
+            <span class="name">udhwa</span>
+            <span class="dot-in">.in</span>
+        </div>
+        <button class="burger" onclick="toggleMenu()">☰</button>
+    </nav>
+
+    <!-- Sidebar Menu -->
+    <div class="body-backdrop" onclick="toggleMenu()"></div>
+    <button class="close-btn" onclick="toggleMenu()">✕</button>
+    <aside>
+        <a href="index.html">Home</a>
+        <a href="news.html">News</a>
+        <a href="blogs.html">Blogs</a>
+        <a href="listings.html">Listings</a>
+        <a href="services.html">Services</a>
+        <a href="contact.html">Contact</a>
+        <a href="about.html">About</a>
+        <button class="login-btn">Login</button>
+    </aside>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <span class="glass-tag">Your Digital Identity</span>
+            <h1>Welcome to Digital Hub</h1>
+            <p>Stay updated with Udhwa and Jharkhand's latest news, explore blogs, discover businesses, and find essential services — all in one place.</p>
+            <div class="cta-buttons">
+                <a href="news.html" class="cta-btn cta-btn-black">Explore News</a>
+                <a href="blogs.html" class="cta-btn cta-btn-white">Discover Blogs</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Latest News Section -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Latest News</h2>
+            <div id="latest-news" class="cards-grid">
+                <!-- News cards will be loaded by JavaScript -->
+            </div>
+            <div class="section-footer">
+                <a href="news.html" class="view-all-btn">View All News</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Latest Blogs Section -->
+    <section class="section bg-light">
+        <div class="container">
+            <h2 class="section-title">Latest Blogs</h2>
+            <div id="latest-blogs" class="cards-grid">
+                <!-- Blog cards will be loaded by JavaScript -->
+            </div>
+            <div class="section-footer">
+                <a href="blogs.html" class="view-all-btn">View All Blogs</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <section class="top">
+            <ul>
+                <li>
+    <h3>Udhwa.in</h3>
+    <a href="about.html">About Us</a>
+    <a href="contact.html">Contact</a>
+    <a href="contribute.html">Contribute</a> 
+    <a href="sitemap.html">Sitemap</a>
+</li>
+<li>
+    <h3>Our Services</h3>
+    <a href="services.html">All Services</a>
+    <a href="listings.html">Listings</a>
+    <a href="news.html">Local News</a>
+    <a href="blogs.html">Community Blogs</a>
+</li>
+<li>
+    <h3>Resources</h3>
+    <a href="emergency-contacts.html">Emergency Contacts</a>
+    <a href="important-numbers.html">Important Numbers</a>
+    <a href="local-guide.html">Udhwa Guide</a>
+    <a href="downloads.html">Downloads</a>
+</li>
+<li>
+    <h3>Connect</h3>
+    <a href="https://wa.me/yournumber">WhatsApp</a>
+    <a href="https://facebook.com/udhwain">Facebook</a>
+    <a href="https://www.instagram.com/udhwa.in">Instagram</a>
+    <a href="mailto:contact@udhwa.in">Email Us</a>
+</li>
+            </ul>
+        </section>
+        <section class="bottom">
+            <p>Made with ♥️ by Sarfaraj • © <span id="current-year">2025</span> udhwa.in</p>
+        </section>
+    </footer>
+
+    <script src="js/common.js"></script>
+    <script src="js/home.js"></script>
+</body>
+</html>

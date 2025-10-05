@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blogs & Stories from Udhwa - udhwa.in</title>
+    <meta name="description" content="Read interesting blogs and stories from Udhwa. Cultural insights, technology tips, and community perspectives.">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/blogs.css">
+</head>
+<body>
+    <!-- Backdrop for menu -->
+    <div class="body-backdrop" onclick="toggleMenu()"></div>
+    
+    <!-- Navigation -->
+    <nav>
+        <div class="logo" onclick="goToHome()" style="cursor: pointer;">
+            <span class="name">udhwa</span>
+            <span class="dot-in">.in</span>
+        </div>
+        <button class="burger" onclick="toggleMenu()">☰</button>
+    </nav>
+
+    <!-- Close button -->
+    <button class="close-btn" onclick="toggleMenu()">✕</button>
+    
+    <!-- Sidebar Menu -->
+    <aside>
+        <a href="index.html">Home</a>
+        <a href="news.html">News</a>
+        <a href="blogs.html">Blogs</a>
+        <a href="listings.html">Listings</a>
+        <a href="services.html">Services</a>
+        <a href="contact.html">Contact</a>
+        <a href="about.html">About</a>
+        <button class="login-btn">Login</button>
+    </aside>
+
+    <!-- Main Content -->
+    <main>
+        <section class="section">
+            <div class="container">
+                <h1 class="section-title">Blogs & Stories</h1>
+                <p class="section-subtitle">Discover stories, insights, and perspectives from Udhwa and beyond</p>
+                
+                <!-- Blogs Container -->
+                <div id="blogs-posts" class="cards-grid">
+                    <!-- Blog cards will be loaded by JavaScript -->
+                </div>
+
+                <!-- Loading Indicator -->
+                <div id="loading" class="loading-indicator">
+                    Loading blogs...
+                </div>
+
+                <!-- Pagination -->
+                <div id="pagination" class="pagination">
+                    <!-- Pagination buttons will be loaded by JavaScript -->
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <section class="top">
+            <ul>
+                <li>
+    <h3>Udhwa.in</h3>
+    <a href="about.html">About Us</a>
+    <a href="contact.html">Contact</a>
+    <a href="contribute.html">Contribute</a> 
+    <a href="sitemap.html">Sitemap</a>
+</li>
+<li>
+    <h3>Our Services</h3>
+    <a href="services.html">All Services</a>
+    <a href="Listings.html">Listings</a>
+    <a href="news.html">Local News</a>
+    <a href="blogs.html">Community Blogs</a>
+</li>
+<li>
+    <h3>Resources</h3>
+    <a href="emergency-contacts.html">Emergency Contacts</a>
+    <a href="important-numbers.html">Important Numbers</a>
+    <a href="local-guide.html">Udhwa Guide</a>
+    <a href="downloads.html">Downloads</a>
+</li>
+<li>
+    <h3>Connect</h3>
+    <a href="https://wa.me/yournumber">WhatsApp</a>
+    <a href="https://facebook.com/udhwain">Facebook</a>
+    <a href="https://www.instagram.com/udhwa.in">Instagram</a>
+    <a href="mailto:contact@udhwa.in">Email Us</a>
+</li>
+            </ul>
+        </section>
+        <section class="bottom">
+            <p>Made with ♥️ by Sarfaraj • © <span id="current-year">2025</span> udhwa.in</p>
+        </section>
+    </footer>
+
+    <script src="js/common.js"></script>
+    <script src="js/blogs.js"></script>
+</body>
+</html>

@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>News Title - udhwa.in</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/news-single.css">
+</head>
+<body>
+    <!-- Backdrop for menu -->
+    <div class="body-backdrop" onclick="toggleMenu()"></div>
+    
+    <!-- Navigation -->
+    <nav>
+        <a href="../index.html" class="logo" style="text-decoration: none; color: inherit;">
+            <div class="logo">
+                <span class="name">udhwa</span>
+                <span class="dot-in">.in</span>
+            </div>
+        </a>
+        <button class="burger" onclick="toggleMenu()">☰</button>
+    </nav>
+
+    <!-- Close button -->
+    <button class="close-btn" onclick="toggleMenu()">✕</button>
+    
+    <!-- Sidebar Menu -->
+    <aside>
+        <a href="../index.html">Home</a>
+        <a href="../news.html">News</a>
+        <a href="../blogs.html">Blogs</a>
+        <a href="../history.html">History</a>
+        <a href="../business.html">Businesses</a>
+        <a href="../services.html">Services</a>
+        <a href="../contact.html">Contact</a>
+        <a href="../about.html">About</a>
+        <button class="login-btn">Login</button>
+    </aside>
+
+    <!-- Main Content -->
+    <main>
+        <article class="single-post">
+            <div class="container">
+                <!-- Breadcrumb -->
+                <nav class="breadcrumb">
+                    <a href="../index.html">Home</a> &gt;
+                    <a href="../news.html">News</a> &gt;
+                    <span>Current News</span>
+                </nav>
+
+                <!-- Article Header -->
+                <header class="post-header">
+                    <h1 class="post-title" id="post-title">Loading News Title...</h1>
+                    <div class="post-meta">
+                        <span class="post-date" id="post-date">Loading date...</span>
+                        <span class="post-author" id="post-author">By Loading author...</span>
+                        <span class="post-read-time" id="post-read-time">• 3 min read</span>
+                    </div>
+                    <div class="featured-image">
+                        <img id="post-image" src="" alt="News image" 
+                             onerror="this.src='https://images.unsplash.com/photo-1504711434969-e33886168f5c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80'">
+                    </div>
+                </header>
+
+                <!-- Article Content -->
+                <div class="post-content" id="post-content">
+                    <p>Loading news content...</p>
+                </div>
+
+                <!-- Author Bio -->
+                <div class="author-bio" id="author-bio">
+                    <div class="author-avatar">
+                        <div class="avatar-placeholder" id="author-initials">A</div>
+                    </div>
+                    <div class="author-info">
+                        <h4 id="author-name">Author Name</h4>
+                        <p id="author-description">News reporter and content writer</p>
+                    </div>
+                </div>
+
+                <!-- Navigation -->
+                <div class="post-navigation">
+                    <a href="#" class="nav-btn prev" id="prev-post">
+                        ← Previous News
+                    </a>
+                    <a href="../news.html" class="nav-btn back">
+                        Back to All News
+                    </a>
+                    <a href="#" class="nav-btn next" id="next-post">
+                        Next News →
+                    </a>
+                </div>
+
+                <!-- Related News -->
+                <section class="related-posts">
+                    <h2>Related News</h2>
+                    <div class="cards-grid" id="related-news">
+                        <!-- Related news will load here -->
+                    </div>
+                </section>
+            </div>
+        </article>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <section class="top">
+            <ul>
+                <li>
+    <h3>Udhwa.in</h3>
+    <a href="about.html">About Us</a>
+    <a href="contact.html">Contact</a>
+    <a href="contribute.html">Contribute</a> 
+    <a href="sitemap.html">Sitemap</a>
+</li>
+<li>
+    <h3>Our Services</h3>
+    <a href="services.html">All Services</a>
+    <a href="business.html">Local Businesses</a>
+    <a href="news.html">Local News</a>
+    <a href="blogs.html">Community Blogs</a>
+</li>
+<li>
+    <h3>Resources</h3>
+    <a href="emergency-contacts.html">Emergency Contacts</a>
+    <a href="important-numbers.html">Important Numbers</a>
+    <a href="local-guide.html">Udhwa Guide</a>
+    <a href="downloads.html">Downloads</a>
+</li>
+<li>
+    <h3>Connect</h3>
+    <a href="https://wa.me/yournumber">WhatsApp</a>
+    <a href="https://facebook.com/udhwain">Facebook</a>
+    <a href="https://www.instagram.com/udhwa.in">Instagram</a>
+    <a href="mailto:contact@udhwa.in">Email Us</a>
+</li>
+            </ul>
+        </section>
+        <section class="bottom">
+            <p>Made with ♥️ by Sarfaraj • © <span id="current-year">2025</span> udhwa.in</p>
+        </section>
+    </footer>
+
+    <script src="../js/common.js"></script>
+    <script src="../js/news-single.js"></script>
+</body>
+</html>

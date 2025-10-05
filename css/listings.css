@@ -1,0 +1,287 @@
+/* Businesses page specific styles */
+
+.section-subtitle {
+    text-align: center;
+    color: var(--text-light);
+    font-size: 1.1rem;
+    margin-bottom: 50px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Categories Filter */
+.categories-filter {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 40px;
+    padding: 0 20px;
+}
+
+.category-btn {
+    padding: 10px 20px;
+    border: 2px solid var(--border-color);
+    background: var(--secondary-color);
+    color: var(--text-color);
+    border-radius: 25px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: var(--transition);
+    white-space: nowrap;
+}
+
+.category-btn:hover {
+    border-color: var(--primary-color);
+    color: var(--primary-color);
+}
+
+.category-btn.active {
+    background: var(--primary-color);
+    color: var(--secondary-color);
+    border-color: var(--primary-color);
+}
+
+/* Business Card Styles */
+.business-card {
+    position: relative;
+    transition: var(--transition);
+}
+
+.business-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+.business-category {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    background: rgba(255, 255, 255, 0.95);
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    backdrop-filter: blur(10px);
+}
+
+.business-category.restaurant {
+    background: #fed7d7;
+    color: #c53030;
+}
+
+.business-category.shop {
+    background: #bee3f8;
+    color: #2c5aa0;
+}
+
+.business-category.service {
+    background: #c6f6d5;
+    color: #276749;
+}
+
+.business-category.medical {
+    background: #e9d8fd;
+    color: #6b46c1;
+}
+
+.business-category.other {
+    background: #feebc8;
+    color: #d69e2e;
+}
+
+.business-name {
+    font-size: 1.3rem;
+    margin-bottom: 8px;
+    color: var(--text-color);
+}
+
+.business-owner {
+    color: var(--text-light);
+    font-size: 0.9rem;
+    margin-bottom: 12px;
+    font-style: italic;
+}
+
+.business-contact {
+    margin-top: 15px;
+    padding-top: 15px;
+    border-top: 1px solid var(--border-color);
+}
+
+.contact-info {
+    display: flex;
+    align-items: center;
+    margin-bottom: 8px;
+    font-size: 0.9rem;
+    color: var(--text-light);
+}
+
+.contact-info:last-child {
+    margin-bottom: 0;
+}
+
+.contact-icon {
+    margin-right: 8px;
+    width: 16px;
+    text-align: center;
+}
+
+.business-hours {
+    background: #f7fafc;
+    padding: 12px;
+    border-radius: 8px;
+    margin-top: 15px;
+    font-size: 0.85rem;
+}
+
+.hours-title {
+    font-weight: 600;
+    margin-bottom: 4px;
+    color: var(--text-color);
+}
+
+.hours-time {
+    color: var(--text-light);
+}
+
+/* Business Actions */
+.business-actions {
+    display: flex;
+    gap: 8px;
+    margin-top: 15px;
+}
+
+.action-btn {
+    flex: 1;
+    padding: 8px 12px;
+    border: 1px solid var(--border-color);
+    background: var(--secondary-color);
+    color: var(--text-color);
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.85rem;
+    transition: var(--transition);
+    text-align: center;
+    text-decoration: none;
+}
+
+.action-btn.primary {
+    background: var(--primary-color);
+    color: var(--secondary-color);
+    border-color: var(--primary-color);
+}
+
+.action-btn:hover {
+    transform: translateY(-1px);
+}
+
+.action-btn.primary:hover {
+    background: var(--accent-color);
+}
+
+/* CTA Section */
+.cta-section {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 60px 40px;
+    border-radius: 16px;
+    text-align: center;
+    margin-top: 60px;
+}
+
+.cta-content h2 {
+    margin-bottom: 16px;
+    font-size: 2rem;
+}
+
+.cta-content p {
+    margin-bottom: 25px;
+    font-size: 1.1rem;
+    opacity: 0.9;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.cta-button {
+    background: white;
+    color: #667eea;
+    border: none;
+    padding: 14px 32px;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.cta-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Loading indicator */
+.loading-indicator {
+    text-align: center;
+    padding: 40px;
+    color: var(--text-light);
+    font-size: 1.1rem;
+}
+
+.loading-indicator.hidden {
+    display: none;
+}
+
+/* No results message */
+.no-results {
+    text-align: center;
+    padding: 60px 20px;
+    color: var(--text-light);
+    grid-column: 1 / -1;
+}
+
+.no-results h3 {
+    margin-bottom: 10px;
+    color: var(--text-color);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .categories-filter {
+        gap: 8px;
+    }
+    
+    .category-btn {
+        padding: 8px 16px;
+        font-size: 0.85rem;
+    }
+    
+    .cta-section {
+        padding: 40px 20px;
+    }
+    
+    .cta-content h2 {
+        font-size: 1.5rem;
+    }
+    
+    .business-actions {
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 480px) {
+    .categories-filter {
+        justify-content: flex-start;
+        overflow-x: auto;
+        padding-bottom: 10px;
+    }
+    
+    .category-btn {
+        flex-shrink: 0;
+    }
+}

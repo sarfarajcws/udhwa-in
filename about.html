@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Udhwa.in - Connecting Udhwa Digitally</title>
+    <meta name="description" content="Learn about Udhwa.in - a community-driven platform sharing news, blogs, and local information from Udhwa, Jharkhand.">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/about.css">
+</head>
+<body>
+    <!-- Backdrop for menu -->
+    <div class="body-backdrop" onclick="toggleMenu()"></div>
+    
+    <!-- Navigation -->
+    <nav>
+        <div class="logo" onclick="goToHome()" style="cursor: pointer;">
+            <span class="name">udhwa</span>
+            <span class="dot-in">.in</span>
+        </div>
+        <button class="burger" onclick="toggleMenu()">☰</button>
+    </nav>
+
+    <!-- Close button -->
+    <button class="close-btn" onclick="toggleMenu()">✕</button>
+    
+    <!-- Sidebar Menu -->
+    <aside>
+        <a href="index.html">Home</a>
+        <a href="news.html">News</a>
+        <a href="blogs.html">Blogs</a>
+        <a href="listings.html">Listings</a>
+        <a href="services.html">Services</a>
+        <a href="contact.html">Contact</a>
+        <a href="about.html">About</a>
+        <button class="login-btn">Login</button>
+    </aside>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Hero Section -->
+        <section class="about-hero">
+            <div class="container">
+                <div class="hero-content">
+                    <h1>About Udhwa.in</h1>
+                    <p>Connecting Udhwa to the digital world</p>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Introduction Section -->
+        <section class="section">
+            <div class="container">
+                <h2 class="section-title">Our Mission</h2>
+                <p class="section-text">Udhwa.in is a community-driven website dedicated to sharing news, blogs, history, and local updates from Udhwa. Our mission is to preserve and promote the identity of Udhwa while making information accessible to everyone.</p>
+            </div>
+        </section>
+        
+        <!-- Vision Section -->
+        <section class="section bg-light">
+            <div class="container">
+                <h2 class="section-title">Our Vision</h2>
+                <div class="vision-grid">
+                    <!-- Vision items will be loaded by JavaScript -->
+                </div>
+            </div>
+        </section>
+        
+        <!-- About Udhwa Section -->
+        <section class="section">
+            <div class="container">
+                <h2 class="section-title">About Udhwa</h2>
+                <div class="about-content">
+                    <div class="about-text">
+                        <p>Udhwa is a beautiful region known for its rich cultural heritage and close-knit community. Located in the Sahibganj district of Jharkhand, India, Udhwa is surrounded by natural beauty and is home to the Udhwa Lake Bird Sanctuary, an important wetland ecosystem that attracts numerous migratory birds.</p>
+                        <p>The community in Udhwa is known for its warmth and hospitality, with traditions that have been preserved through generations. The area is characterized by its agricultural practices, local festivals, and a strong sense of community identity.</p>
+                    </div>
+                    <div class="about-image">
+                        <img src="/images/about /udhwa-landscape.jpg" alt="Udhwa landscape" 
+                             onerror="this.src='https://images.unsplash.com/photo-1544551763-46a013bb70d5?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80'">
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Team Section -->
+        <section class="section bg-light">
+            <div class="container">
+                <h2 class="section-title">Who We Are</h2>
+                <div class="team-section">
+                    <div class="team-member">
+                        <h3>Sarfaraj Alam</h3>
+                        <p>Udhwa.in is created and managed by Sarfaraj Alam. With a passion for technology and community, the idea is to bring Udhwa closer to the digital world. Our goal is to create a platform that serves the community while preserving the unique identity of Udhwa.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Contact Section -->
+        <section class="section">
+            <div class="container">
+                <div class="contact-cta">
+                    <h2>Get In Touch</h2>
+                    <p>Have suggestions or want to contribute?</p>
+                    <a href="contact.html" class="cta-button">Go to Contact Page</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <section class="top">
+            <ul>
+                <li>
+    <h3>Udhwa.in</h3>
+    <a href="about.html">About Us</a>
+    <a href="contact.html">Contact</a>
+    <a href="contribute.html">Contribute</a> 
+    <a href="sitemap.html">Sitemap</a>
+</li>
+<li>
+    <h3>Our Services</h3>
+    <a href="services.html">All Services</a>
+    <a href="listings.html">Listings</a>
+    <a href="news.html">Local News</a>
+    <a href="blogs.html">Community Blogs</a>
+</li>
+<li>
+    <h3>Resources</h3>
+    <a href="emergency-contacts.html">Emergency Contacts</a>
+    <a href="important-numbers.html">Important Numbers</a>
+    <a href="local-guide.html">Udhwa Guide</a>
+    <a href="downloads.html">Downloads</a>
+</li>
+<li>
+    <h3>Connect</h3>
+    <a href="https://wa.me/yournumber">WhatsApp</a>
+    <a href="https://facebook.com/udhwain">Facebook</a>
+    <a href="https://www.instagram.com/udhwa.in">Instagram</a>
+    <a href="mailto:contact@udhwa.in">Email Us</a>
+</li>
+            </ul>
+        </section>
+        <section class="bottom">
+            <p>Made with ♥️ by Sarfaraj • © <span id="current-year">2025</span> udhwa.in</p>
+        </section>
+    </footer>
+
+    <script src="js/common.js"></script>
+    <script src="js/about.js"></script>
+</body>
+</html>

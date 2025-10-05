@@ -1,0 +1,30 @@
+{
+  "recentNews": [
+    {
+    "id": 2,
+    "title": "झारखंड बोर्ड परीक्षा फरवरी-मार्च में; उत्कृष्ट विद्यालय शिक्षक प्रतिनियुक्ति शुरू",
+    "excerpt": "मैट्रिक-इंटर परीक्षाएँ फरवरी-मार्च में होंगी। उत्कृष्ट विद्यालयों में प्रतिनियुक्ति के लिए TNA में सफल शिक्षकों को 15 अक्तूबर तक ई-विद्यावाहिनी पर आवेदन करना होगा।",
+    "date": "2025-10-04",
+    "image": "../images/news/jac-exam.jpg",
+    "link": "news/news-2.html"
+  },
+  {
+    "id": 1,
+    "title": "Jharkhand Launches ICT Championship for School Students",
+    "excerpt": "State-wide digital skills competition with laptops and tablets as prizes",
+    "date": "2025-09-13",
+    "image": "../images/news/ict-championship.jpg",
+    "link": "news/news-1.html"
+  }
+  ],
+ "recentBlogs": [
+    {
+      "id": 11,
+      "title": "Computer Era Mein Skills Ka Mahatva: Hum Kya Seekhein?",
+      "excerpt": "Aaj ke digital daur mein basic computer skills sirf option nahi, balki zaroorat ban chuke hain. Jaaniye kaunsi skills seekhkar aap apna future secure kar sakte hain.",
+      "date": "2025-10-04",
+      "image": "../images/blogs/computer-skills.jpg",
+      "link": "blogs/blog-1.html"
+    }
+  ]
+}

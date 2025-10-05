@@ -1,0 +1,21 @@
+[
+  {
+  "id": 1,
+  "title": "Jharkhand Launches ICT Championship eShiksha Mahotsav 2025 for Government School Students",
+  "excerpt": "Over 50,000 students from classes 9-12 to participate in state-wide digital skills competition with laptops, tablets as prizes.",
+  "date": "2025-09-13",
+  "image": "../images/news/ict-championship.jpg",
+  "category": "Education",
+  "link": "../news/news-1.html"
+},
+{
+  "id": 2,
+  "title": "JAC Exam Alert: 10वीं-12वीं की परीक्षाएँ फरवरी-मार्च में, उत्कृष्ट विद्यालयों में शिक्षकों की प्रतिनियुक्ति शुरू",
+  "excerpt": "झारखंड बोर्ड (JAC) की मैट्रिक-इंटर परीक्षाएँ फरवरी-मार्च 2026 में होंगी। उत्कृष्ट विद्यालयों में शिक्षकों की प्रतिनियुक्ति के लिए TNA में सफल 2,459 शिक्षकों से 15 अक्तूबर तक ई-विद्यावाहिनी पोर्टल पर आवेदन माँगे गए।",
+  "date": "2025-10-04",
+  "image": "../images/news/jac-exam.jpg",
+  "category": "शिक्षा समाचार",
+  "link": "../news/news-2.html"
+}
+
+]

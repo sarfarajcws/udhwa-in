@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "name": "Kohinoor Restaurant",
+    "category": "restaurant",
+    "description": "A widely famous and only restaurant in udhwa.",
+    "image": "/images/listings/kohinoor-restaurant.jpg",
+    "owner": "",
+    "address": "Near High School Udhwa, Barharwa Road",
+    "phone": "+91 12345 678xx",
+    "hours": "7:00 AM - 9:00 PM (Daily)",
+    "directions": "https://maps.google.com/?q=Kohinoor+Restaurant"
+  },
+  {
+    "id": 2,
+    "name": "Haya Mart",
+    "category": "shop",
+    "description": "General Store, groceries & daily needs. Cosmetics, Chocolates & Drinks, Gift & Toys, Books, Bakeries and Sports etc. Every products are available with good and fair price.",
+    "image": "images/listings/haya-store.jpg",
+    "owner": "Imtiaz Alam",
+    "address": "Barharwa By Pass Road, Near SBI Udhwa",
+    "phone": "+91 79798 56599",
+    "hours": "08:00 AM - 09:00 PM (Daily)",
+    "directions": "https://maps.google.com/?q=HAYA-MART"
+  }
+]

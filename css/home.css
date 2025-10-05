@@ -1,0 +1,11 @@
+/* Homepage specific styles can go here */
+/* Most styles are in the global style.css */
+
+/* Additional homepage variations if needed */
+.home-news-card .card-title {
+    color: #2d3748;
+}
+
+.home-blog-card .card-title {
+    color: #4a5568;
+}

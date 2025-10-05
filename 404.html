@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page Not Found - udhwa.in</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .error-hero {
+            min-height: 70vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 80px 20px;
+        }
+        
+        .error-code {
+            font-size: 8rem;
+            font-weight: 800;
+            color: var(--primary-color);
+            line-height: 1;
+            margin-bottom: 20px;
+        }
+        
+        .error-title {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: var(--text-color);
+        }
+        
+        .error-message {
+            font-size: 1.2rem;
+            color: var(--text-light);
+            margin-bottom: 40px;
+            max-width: 500px;
+            line-height: 1.6;
+        }
+        
+        .error-actions {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        @media (max-width: 768px) {
+            .error-code {
+                font-size: 6rem;
+            }
+            
+            .error-title {
+                font-size: 2rem;
+            }
+            
+            .error-actions {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .error-actions .cta-btn {
+                width: 200px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Backdrop for menu -->
+    <div class="body-backdrop" onclick="toggleMenu()"></div>
+    
+    <!-- Navigation -->
+    <nav>
+        <div class="logo" onclick="goToHome()" style="cursor: pointer;">
+            <span class="name">udhwa</span>
+            <span class="dot-in">.in</span>
+        </div>
+        <button class="burger" onclick="toggleMenu()">☰</button>
+    </nav>
+
+    <!-- Close button -->
+    <button class="close-btn" onclick="toggleMenu()">✕</button>
+    
+    <!-- Sidebar Menu -->
+    <aside>
+        <a href="index.html">Home</a>
+        <a href="news.html">News</a>
+        <a href="blogs.html">Blogs</a>
+        <a href="listings.html">Listings</a>
+        <a href="services.html">Services</a>
+        <a href="contact.html">Contact</a>
+        <a href="about.html">About</a>
+        <button class="login-btn">Login</button>
+    </aside>
+
+    <!-- Main Content -->
+    <main>
+        <section class="error-hero">
+            <div class="container">
+                <div class="error-code">404</div>
+                <h1 class="error-title">Page Not Found</h1>
+                <p class="error-message">
+                    The page you're looking for doesn't exist or has been moved. 
+                    Let's get you back on track.
+                </p>
+                <div class="error-actions">
+                    <a href="index.html" class="cta-btn cta-btn-black">🏠 Go Home</a>
+                    <a href="javascript:history.back()" class="cta-btn cta-btn-white">↩ Go Back</a>
+                    <a href="contact.html" class="cta-btn cta-btn-white">📞 Report Issue</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Quick Links Section -->
+        <section class="section bg-light">
+            <div class="container">
+                <h2 class="section-title">Popular Pages</h2>
+                <div class="cards-grid">
+                    <div class="card">
+                        <div class="card-content">
+                            <h3 class="card-title">📰 Latest News</h3>
+                            <p class="card-text">Stay updated with the latest happenings in Udhwa and surrounding areas.</p>
+                            <a href="news.html" class="card-button">Read News</a>
+                        </div>
+                    </div>
+                    
+                    <div class="card">
+                        <div class="card-content">
+                            <h3 class="card-title">📝 Blogs & Stories</h3>
+                            <p class="card-text">Discover stories, insights, and perspectives from Udhwa and beyond.</p>
+                            <a href="blogs.html" class="card-button">Read Blogs</a>
+                        </div>
+                    </div>
+                    
+                    <div class="card">
+                        <div class="card-content">
+                            <h3 class="card-title">🏪 Local Businesses</h3>
+                            <p class="card-text">Discover and support local businesses in Udhwa.</p>
+                            <a href="listings.html" class="card-button">Explore Businesses</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <section class="top">
+            <ul>
+                <li>
+    <h3>Udhwa.in</h3>
+    <a href="about.html">About Us</a>
+    <a href="contact.html">Contact</a>
+    <a href="contribute.html">Contribute</a> 
+    <a href="sitemap.html">Sitemap</a>
+</li>
+<li>
+    <h3>Our Services</h3>
+    <a href="services.html">All Services</a>
+    <a href="listings.html">Local Listings</a>
+    <a href="news.html">Local News</a>
+    <a href="blogs.html">Community Blogs</a>
+</li>
+<li>
+    <h3>Resources</h3>
+    <a href="emergency-contacts.html">Emergency Contacts</a>
+    <a href="important-numbers.html">Important Numbers</a>
+    <a href="local-guide.html">Udhwa Guide</a>
+    <a href="downloads.html">Downloads</a>
+</li>
+<li>
+    <h3>Connect</h3>
+    <a href="https://wa.me/yournumber">WhatsApp</a>
+    <a href="https://facebook.com/udhwain">Facebook</a>
+    <a href="https://www.instagram.com/udhwa.in">Instagram</a>
+    <a href="mailto:contact@udhwa.in">Email Us</a>
+</li>
+            </ul>
+        </section>
+        <section class="bottom">
+            <p>Made with ♥️ by Sarfaraj • © <span id="current-year">2025</span> udhwa.in</p>
+        </section>
+    </footer>
+
+    <script src="js/common.js"></script>
+</body>
+</html>

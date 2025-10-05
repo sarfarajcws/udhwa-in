@@ -1,0 +1,162 @@
+[
+  {
+    "id": 1,
+    "name": "Udhwa Medical Center",
+    "category": "medical",
+    "description": "Complete medical services including general consultation, emergency care, and basic diagnostic facilities. Open 24/7 for emergency cases.",
+    "image": "images/services/medical-center.jpg",
+    "features": [
+      "General Consultation",
+      "Emergency Care",
+      "Basic Diagnostics",
+      "Medicine Dispensary"
+    ],
+    "provider": {
+      "name": "Dr. Rajesh Kumar",
+      "experience": "15+ years experience"
+    },
+    "phone": "+91 98765 43210",
+    "hours": "24/7 Emergency, 9AM-8PM OPD",
+    "link": "service-medical-center.html"
+  },
+  {
+    "id": 2,
+    "name": "Udhwa Tutoring Center",
+    "category": "education",
+    "description": "Quality tutoring services for school students from classes 1 to 12. Special focus on mathematics, science, and English subjects.",
+    "image": "images/services/tutoring-center.jpg",
+    "features": [
+      "Classes 1-12",
+      "Mathematics & Science",
+      "English Language",
+      "Exam Preparation"
+    ],
+    "provider": {
+      "name": "Mrs. Priya Sharma",
+      "experience": "10+ years teaching experience"
+    },
+    "phone": "+91 98765 43211",
+    "hours": "3PM-7PM (Mon-Sat)",
+    "link": "service-tutoring-center.html"
+  },
+  {
+    "id": 3,
+    "name": "Local Taxi Service",
+    "category": "transport",
+    "description": "Reliable local taxi service for daily commute, airport transfers, and outstation trips. Well-maintained vehicles with experienced drivers.",
+    "image": "images/services/taxi-service.jpg",
+    "features": [
+      "Local & Outstation",
+      "24/7 Service",
+      "Airport Transfers",
+      "Experienced Drivers"
+    ],
+    "provider": {
+      "name": "Mohan Singh",
+      "experience": "8+ years driving experience"
+    },
+    "phone": "+91 98765 43212",
+    "hours": "24/7",
+    "link": "service-taxi.html"
+  },
+  {
+    "id": 4,
+    "name": "Mobile Repair Shop",
+    "category": "repair",
+    "description": "Expert mobile phone repair services for all brands. Screen replacement, battery issues, software problems, and general maintenance.",
+    "image": "images/services/mobile-repair.jpg",
+    "features": [
+      "All Brands Supported",
+      "Screen Replacement",
+      "Battery Issues",
+      "Software Repair"
+    ],
+    "provider": {
+      "name": "Vikram Tech Solutions",
+      "experience": "Certified technician"
+    },
+    "phone": "+91 98765 43213",
+    "hours": "10AM-8PM (Mon-Sat)",
+    "link": "service-mobile-repair.html"
+  },
+  {
+    "id": 5,
+    "name": "Legal Consultation Services",
+    "category": "professional",
+    "description": "Professional legal consultation for property matters, documentation, and general legal advice. Experienced legal practitioner.",
+    "image": "images/services/legal-services.jpg",
+    "features": [
+      "Property Documentation",
+      "Legal Advice",
+      "Contract Review",
+      "General Consultation"
+    ],
+    "provider": {
+      "name": "Advocate Sanjay Verma",
+      "experience": "12+ years legal practice"
+    },
+    "phone": "+91 98765 43214",
+    "hours": "11AM-6PM (Mon-Fri)",
+    "link": "service-legal.html"
+  },
+  {
+    "id": 6,
+    "name": "Electrician Services",
+    "category": "utility",
+    "description": "Professional electrical services for home and commercial establishments. Wiring, repairs, installations, and maintenance.",
+    "image": "images/services/electrician.jpg",
+    "features": [
+      "Home Wiring",
+      "Repairs & Maintenance",
+      "New Installations",
+      "Emergency Services"
+    ],
+    "provider": {
+      "name": "Ramesh Electricals",
+      "experience": "Licensed electrician"
+    },
+    "phone": "+91 98765 43215",
+    "hours": "8AM-8PM (Daily)",
+    "link": "service-electrician.html"
+  },
+  {
+    "id": 7,
+    "name": "Computer Repair Center",
+    "category": "repair",
+    "description": "Complete computer repair and maintenance services. Hardware issues, software installation, virus removal, and general troubleshooting.",
+    "image": "images/services/computer-repair.jpg",
+    "features": [
+      "Hardware Repair",
+      "Software Installation",
+      "Virus Removal",
+      "Data Recovery"
+    ],
+    "provider": {
+      "name": "Tech Solutions Udhwa",
+      "experience": "Certified technicians"
+    },
+    "phone": "+91 98765 43216",
+    "hours": "10AM-7PM (Mon-Sat)",
+    "link": "service-computer-repair.html"
+  },
+  {
+    "id": 8,
+    "name": "Plumbing Services",
+    "category": "utility",
+    "description": "Expert plumbing services for residential and commercial properties. Pipe repairs, installations, maintenance, and emergency services.",
+    "image": "images/services/plumbing.jpg",
+    "features": [
+      "Pipe Repairs",
+      "New Installations",
+      "Maintenance",
+      "Emergency Services"
+    ],
+    "provider": {
+      "name": "Suresh Plumbing",
+      "experience": "15+ years experience"
+    },
+    "phone": "+91 98765 43217",
+    "hours": "7AM-9PM (Daily)",
+    "link": "service-plumbing.html"
+  }
+]
