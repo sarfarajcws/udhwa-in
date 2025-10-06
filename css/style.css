@@ -102,6 +102,9 @@ body.open nav {
     cursor: pointer;
     transition: var(--transition);
     z-index: 1000;
+    -webkit-tap-highlight-color: transparent;
+    user-select: none;
+    outline: none;
 }
 
 .burger:hover {
@@ -123,6 +126,9 @@ body.open nav {
     z-index: 1002;
     transition: var(--transition);
     background: transparent;
+    -webkit-tap-highlight-color: transparent;
+    user-select: none;
+    outline: none;
 }
 
 .close-btn:hover {
