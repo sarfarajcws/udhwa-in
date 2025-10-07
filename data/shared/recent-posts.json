@@ -18,6 +18,14 @@
   }
   ],
  "recentBlogs": [
+   {
+  "id": 12,
+  "title": "Phone Se Coding Shuru Kare: Python aur Web Development",
+  "excerpt": "Laptop ke bina bhi coding possible hai! Seekhiye kaise apne phone se Python, web development aur mini projects start kar sakte hain.",
+  "date": "2025-10-07",
+  "image": "../images/blogs/phone-coding.jpg",
+  "link": "blogs/blog-2.html"
+  },
     {
       "id": 11,
       "title": "Computer Era Mein Skills Ka Mahatva: Hum Kya Seekhein?",

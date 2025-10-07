@@ -8,5 +8,15 @@
   "category": "technology",
   "readTime": 6,
   "link": "../blogs/blog-1.html"
+},
+{
+  "id": 2,
+  "title": "Phone Se Coding Shuru Kare: Python aur Web Development",
+  "excerpt": "Ab laptop ke bina bhi coding seekhna possible hai! Jaaniye kaise aap apne phone se Python, web development aur mini projects start kar sakte hain.",
+  "date": "2025-10-07",
+  "image": "../images/blogs/phone-coding.jpg",
+  "category": "technology",
+  "readTime": 5,
+  "link": "../blogs/blog-2.html"
 }
 ]

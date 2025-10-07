@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog Title - udhwa.in</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/blog-single.css">
+</head>
+<body>
+    <!-- Backdrop for menu -->
+    <div class="body-backdrop" onclick="toggleMenu()"></div>
+    
+    <!-- Navigation -->
+    <nav>
+        <a href="../index.html" class="logo" style="text-decoration: none; color: inherit;">
+            <div class="logo">
+                <span class="name">udhwa</span>
+                <span class="dot-in">.in</span>
+            </div>
+        </a>
+        <button class="burger" onclick="toggleMenu()">☰</button>
+    </nav>
+
+    <!-- Close button -->
+    <button class="close-btn" onclick="toggleMenu()">✕</button>
+    
+    <!-- Sidebar Menu -->
+    <aside>
+        <a href="../index.html">Home</a>
+        <a href="../news.html">News</a>
+        <a href="../blogs.html">Blogs</a>
+        <a href="../history.html">History</a>
+        <a href="../business.html">Businesses</a>
+        <a href="../services.html">Services</a>
+        <a href="../contact.html">Contact</a>
+        <a href="../about.html">About</a>
+        <button class="login-btn">Login</button>
+    </aside>
+
+    <!-- Main Content -->
+    <main>
+        <article class="single-blog">
+            <div class="container">
+                <!-- Blog Header - Breadcrumb removed -->
+                <header class="blog-header">
+                    <div class="blog-category" id="blog-category">Blog</div>
+                    <h1 class="blog-title" id="blog-title">Loading Blog Title...</h1>
+                    <div class="blog-meta">
+                        <span class="blog-date" id="blog-date">Loading date...</span>
+                        <span class="blog-author">By Sarfaraj Alam</span>
+                    </div>
+                    <div class="featured-image">
+                        <img id="blog-image" src="" alt="Blog image" 
+                             onerror="this.src='https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80'">
+                    </div>
+                </header>
+
+                <!-- Blog Content -->
+                <div class="blog-content" id="blog-content">
+                    <p>Loading blog content...</p>
+                </div>
+
+                <!-- Blog Tags -->
+                <div class="blog-tags" id="blog-tags">
+                    <!-- Tags will load here -->
+                </div>
+
+                <!-- Social Share -->
+                <div class="social-share">
+                    <p>Enjoyed this story? Share it with others:</p>
+                    <div class="share-buttons">
+                        <button class="share-btn facebook" onclick="shareOnFacebook()">📘 Facebook</button>
+                        <button class="share-btn twitter" onclick="shareOnTwitter()">🐦 Twitter</button>
+                        <button class="share-btn whatsapp" onclick="shareOnWhatsApp()">💬 WhatsApp</button>
+                    </div>
+                </div>
+
+                <!-- Navigation -->
+                <div class="blog-navigation">
+                    <a href="#" class="nav-btn prev" id="prev-blog">
+                        ← Previous Story
+                    </a>
+                    <a href="../blogs.html" class="nav-btn back">
+                        📚 All Blogs
+                    </a>
+                    <a href="#" class="nav-btn next" id="next-blog">
+                        Next Story →
+                    </a>
+                </div>
+
+                <!-- Related Blogs -->
+                <section class="related-blogs">
+                    <h2>More Stories You Might Like</h2>
+                    <div class="cards-grid" id="related-blogs">
+                        <!-- Related blogs will load here -->
+                    </div>
+                </section>
+            </div>
+        </article>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <section class="top">
+            <ul>
+                <li>
+    <h3>Udhwa.in</h3>
+    <a href="about.html">About Us</a>
+    <a href="contact.html">Contact</a>
+    <a href="contribute.html">Contribute</a> 
+    <a href="sitemap.html">Sitemap</a>
+</li>
+<li>
+    <h3>Our Services</h3>
+    <a href="services.html">All Services</a>
+    <a href="business.html">Local Businesses</a>
+    <a href="news.html">Local News</a>
+    <a href="blogs.html">Community Blogs</a>
+</li>
+<li>
+    <h3>Resources</h3>
+    <a href="emergency-contacts.html">Emergency Contacts</a>
+    <a href="important-numbers.html">Important Numbers</a>
+    <a href="local-guide.html">Udhwa Guide</a>
+    <a href="downloads.html">Downloads</a>
+</li>
+<li>
+    <h3>Connect</h3>
+    <a href="https://wa.me/yournumber">WhatsApp</a>
+    <a href="https://facebook.com/udhwain">Facebook</a>
+    <a href="https://www.instagram.com/udhwa.in">Instagram</a>
+    <a href="mailto:contact@udhwa.in">Email Us</a>
+</li>
+            </ul>
+        </section>
+        <section class="bottom">
+            <p>Made with ♥️ by Sarfaraj • © <span id="current-year">2025</span> udhwa.in</p>
+        </section>
+    </footer>
+
+    <script src="../js/common.js"></script>
+    <script src="../js/blog-single.js"></script>
+</body>
+</html>
