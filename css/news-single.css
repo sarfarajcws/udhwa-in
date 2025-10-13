@@ -2,7 +2,7 @@
 
 /* Breadcrumb */
 .breadcrumb {
-    margin-bottom: 30px;
+    margin-bottom: 20px; /* Reduced */
     font-size: 0.9rem;
     color: var(--text-light);
 }
@@ -18,14 +18,14 @@
 
 /* Post Header */
 .post-header {
-    margin-bottom: 40px;
+    margin-bottom: 30px; /* Reduced from 40px */
     text-align: center;
 }
 
 .post-title {
-    font-size: 2.5rem;
+    font-size: 2.2rem; /* Reduced from 2.5rem */
     line-height: 1.2;
-    margin-bottom: 20px;
+    margin-bottom: 15px; /* Reduced from 20px */
     color: var(--text-color);
     font-weight: 800;
 }
@@ -35,7 +35,7 @@
     justify-content: center;
     align-items: center;
     gap: 15px;
-    margin-bottom: 30px;
+    margin-bottom: 25px; /* Reduced from 30px */
     flex-wrap: wrap;
     color: var(--text-light);
     font-size: 0.95rem;
@@ -46,67 +46,78 @@
     font-weight: 600;
 }
 
+/* Featured Image - REDUCED SIZE */
 .featured-image {
     border-radius: 12px;
     overflow: hidden;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1); /* Reduced shadow */
+    max-width: 800px; /* Reduced from 900px */
+    margin: 0 auto 30px; /* Reduced bottom margin */
+    max-height: 380px; /* Added max height */
 }
 
 .featured-image img {
     width: 100%;
-    height: auto;
+    height: 350px; /* Reduced from auto/500px */
+    object-fit: cover;
     display: block;
+    transition: transform 0.3s ease;
+}
+
+.featured-image:hover img {
+    transform: scale(1.02);
 }
 
 /* Post Content */
 .post-content {
-    max-width: 800px;
-    margin: 0 auto 50px;
+    max-width: 700px;
+    margin: 0 auto 40px; /* Reduced from 50px */
     font-size: 1.1rem;
-    line-height: 1.8;
+    line-height: 1.7; /* Reduced from 1.8 */
     color: var(--text-color);
+    padding: 0 20px;
 }
 
 .post-content h2 {
-    font-size: 1.8rem;
-    margin: 40px 0 20px;
+    font-size: 1.6rem; /* Reduced from 1.8rem */
+    margin: 35px 0 18px; /* Reduced margins */
     color: var(--text-color);
 }
 
 .post-content h3 {
-    font-size: 1.4rem;
-    margin: 30px 0 15px;
+    font-size: 1.3rem; /* Reduced from 1.4rem */
+    margin: 25px 0 12px; /* Reduced margins */
     color: var(--text-color);
 }
 
 .post-content p {
-    margin-bottom: 20px;
+    margin-bottom: 18px; /* Reduced from 20px */
 }
 
 .post-content img {
     max-width: 100%;
     height: auto;
     border-radius: 8px;
-    margin: 25px 0;
+    margin: 20px 0; /* Reduced from 25px */
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
 
 .post-content blockquote {
     border-left: 4px solid var(--primary-color);
     padding-left: 20px;
-    margin: 30px 0;
+    margin: 25px 0; /* Reduced from 30px */
     font-style: italic;
     color: var(--text-light);
-    font-size: 1.2rem;
+    font-size: 1.1rem; /* Reduced from 1.2rem */
 }
 
 .post-content ul, .post-content ol {
-    margin: 20px 0;
-    padding-left: 30px;
+    margin: 18px 0; /* Reduced from 20px */
+    padding-left: 25px; /* Reduced from 30px */
 }
 
 .post-content li {
-    margin-bottom: 8px;
+    margin-bottom: 6px; /* Reduced from 8px */
 }
 
 /* Author Bio */
@@ -114,11 +125,11 @@
     display: flex;
     align-items: center;
     gap: 20px;
-    padding: 30px;
+    padding: 25px; /* Reduced from 30px */
     background: var(--bg-light);
     border-radius: 12px;
-    margin: 50px auto;
-    max-width: 800px;
+    margin: 40px auto; /* Reduced from 50px */
+    max-width: 800px; /* Reduced from 800px */
     border: 1px solid var(--border-color);
 }
 
@@ -156,7 +167,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin: 60px 0;
+    margin: 50px 0; /* Reduced from 60px */
     flex-wrap: wrap;
     gap: 15px;
 }
@@ -193,57 +204,126 @@
 
 /* Related Posts */
 .related-posts {
-    margin-top: 80px;
+    margin-top: 60px; /* Reduced from 80px */
 }
 
 .related-posts h2 {
     text-align: center;
-    margin-bottom: 40px;
-    font-size: 2rem;
+    margin-bottom: 35px; /* Reduced from 40px */
+    font-size: 1.8rem; /* Reduced from 2rem */
     color: var(--text-color);
 }
 
-/* Responsive Design */
+/* Media Queries for News Single Page */
 @media (max-width: 768px) {
     .post-title {
-        font-size: 2rem;
+        font-size: 1.8rem;
     }
     
     .post-meta {
         flex-direction: column;
         gap: 8px;
+        margin-bottom: 20px;
+    }
+    
+    .featured-image {
+        max-height: 300px;
+        margin-bottom: 20px;
+    }
+    
+    .featured-image img {
+        height: 250px;
     }
     
     .post-content {
         font-size: 1rem;
-        padding: 0 10px;
+        padding: 0 15px;
+        margin-bottom: 30px;
     }
     
     .author-bio {
         flex-direction: column;
         text-align: center;
         padding: 20px;
+        margin: 30px auto;
     }
     
     .post-navigation {
         flex-direction: column;
+        margin: 40px 0;
     }
     
     .nav-btn {
         width: 100%;
     }
+    
+    .related-posts {
+        margin-top: 50px;
+    }
+    
+    .related-posts h2 {
+        font-size: 1.6rem;
+        margin-bottom: 30px;
+    }
 }
 
 @media (max-width: 480px) {
     .post-title {
-        font-size: 1.7rem;
+        font-size: 1.5rem;
     }
     
     .post-content h2 {
-        font-size: 1.5rem;
+        font-size: 1.4rem;
     }
     
     .post-content h3 {
         font-size: 1.2rem;
+    }
+    
+    .post-content blockquote {
+        padding: 15px;
+        font-size: 1rem;
+        margin: 20px 0;
+    }
+    
+    .featured-image {
+        max-height: 250px;
+        border-radius: 10px;
+    }
+    
+    .featured-image img {
+        height: 200px;
+    }
+    
+    .author-bio {
+        padding: 15px;
+        margin: 25px auto;
+    }
+    
+    .avatar-placeholder {
+        width: 50px;
+        height: 50px;
+        font-size: 1.3rem;
+    }
+    
+    .related-posts h2 {
+        font-size: 1.4rem;
+    }
+}
+
+/* Large screen optimizations */
+@media (min-width: 1200px) {
+    .featured-image {
+        max-width: 750px;
+    }
+    
+    .post-content {
+        max-width: 650px;
+    }
+}
+
+@media (min-width: 1400px) {
+    .featured-image {
+        max-width: 700px;
     }
 }
