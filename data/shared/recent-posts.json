@@ -20,12 +20,14 @@
  "recentBlogs": [
    {
   "id": 12,
-  "title": "Phone Se Coding Shuru Kare: Python aur Web Development",
-  "excerpt": "Laptop ke bina bhi coding possible hai! Seekhiye kaise apne phone se Python, web development aur mini projects start kar sakte hain.",
-  "date": "2025-10-07",
-  "image": "../images/blogs/phone-coding.jpg",
-  "link": "blogs/blog-2.html"
-  },
+  "title": "Udhwa Lake Bird Sanctuary – Jharkhand's Hidden Paradise for Migratory Birds",
+  "excerpt": "Discover Jharkhand's only bird sanctuary - Udhwa Lake, now a Ramsar Site. Explore 58 bird species, migratory patterns, and conservation efforts in this complete guide.",
+  "date": "2025-10-21",
+  "image": "../images/blogs/udhwa-lake-bird-sanctuary.jpg",
+  "category": "nature",
+  "readTime": 7,
+  "link": "../blogs/blog-3.html"
+},
     {
       "id": 11,
       "title": "Computer Era Mein Skills Ka Mahatva: Hum Kya Seekhein?",

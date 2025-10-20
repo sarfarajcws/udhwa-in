@@ -18,5 +18,15 @@
   "category": "technology",
   "readTime": 5,
   "link": "../blogs/blog-2.html"
+},
+{
+  "id": 3,
+  "title": "Udhwa Lake Bird Sanctuary – Jharkhand's Hidden Paradise for Migratory Birds",
+  "excerpt": "Discover Jharkhand's only bird sanctuary - Udhwa Lake, now a Ramsar Site. Explore 58 bird species, migratory patterns, and conservation efforts in this complete guide.",
+  "date": "2025-10-21",
+  "image": "../images/blogs/udhwa-lake-bird-sanctuary.jpg",
+  "category": "nature",
+  "readTime": 7,
+  "link": "../blogs/blog-3.html"
 }
 ]

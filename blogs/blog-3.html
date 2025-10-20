@@ -1,0 +1,958 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Udhwa Lake Bird Sanctuary - Jharkhand's Only Bird Sanctuary</title>
+    <meta name="description" content="Discover Udhwa Lake Bird Sanctuary in Sahibganj, Jharkhand — the state’s only bird sanctuary and a newly declared Ramsar Site (2025). Explore its twin lakes, rich biodiversity, and thousands of migratory birds from Siberia and Europe that make this wetland a paradise for nature lovers.">
+    <meta name="keywords" content="Udhwa Lake Bird Sanctuary, Jharkhand bird sanctuary, Ramsar site, migratory birds India, Sahibganj tourism, Patauda Lake, Berhale Lake">
+    <link rel="icon" type="image/x-icon" href="../favicon.ico">
+    <link rel="apple-touch-icon" href="../apple-touch-icon.png">
+    <!-- Only external files for nav and footer -->
+    <link rel="stylesheet" href="../css/style.css">
+    <script src="../js/common.js" defer></script>
+    <style>
+        /* Reset for li elements to remove extra bullets */
+        .blog-content ul {
+            list-style: none;
+            padding-left: 0;
+            margin: 20px 0;
+        }
+        
+        .blog-content ul li {
+            position: relative;
+            padding-left: 25px;
+            margin-bottom: 10px;
+            line-height: 1.6;
+        }
+        
+        .blog-content ul li::before {
+            content: '•';
+            color: #2E8B57;
+            font-weight: bold;
+            position: absolute;
+            left: 8px;
+            font-size: 1.2rem;
+        }
+        
+        /* Blog specific styles */
+        .blog-header {
+            margin: 30px 0 40px;
+            text-align: center;
+            padding: 0 20px;
+        }
+
+        .blog-category {
+            display: inline-block;
+            background: #2E8B57;
+            color: white;
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 25px;
+        }
+
+        .blog-title {
+            font-size: 2.5rem;
+            line-height: 1.2;
+            margin-bottom: 20px;
+            color: #333;
+            font-weight: 800;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .blog-meta {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+            color: #666;
+            font-size: 1rem;
+        }
+
+        .blog-author {
+            color: #2E8B57;
+            font-weight: 600;
+        }
+
+        .featured-image {
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+            max-width: 800px;
+            margin: 0 auto 30px;
+            max-height: 400px;
+        }
+
+        .featured-image img {
+            width: 100%;
+            height: 350px;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.3s ease;
+        }
+
+        .featured-image:hover img {
+            transform: scale(1.02);
+        }
+
+        /* Blog Content Styles */
+        .blog-content {
+            max-width: 700px;
+            margin: 0 auto 60px;
+            font-size: 1.15rem;
+            line-height: 1.8;
+            color: #333;
+            padding: 0 20px;
+        }
+
+        .blog-content h2 {
+            font-size: 1.9rem;
+            margin: 50px 0 25px;
+            color: #333;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #e0e0e0;
+        }
+
+        .blog-content h3 {
+            font-size: 1.5rem;
+            margin: 40px 0 20px;
+            color: #333;
+        }
+
+        .blog-content p {
+            margin-bottom: 25px;
+            text-align: justify;
+        }
+
+        .blog-content img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 12px;
+            margin: 35px 0;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .blog-content blockquote {
+            border-left: 4px solid #2E8B57;
+            padding: 25px;
+            margin: 40px 0;
+            font-style: italic;
+            color: #666;
+            font-size: 1.3rem;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            border-radius: 0 12px 12px 0;
+            position: relative;
+        }
+
+        .blog-content blockquote::before {
+            content: '"';
+            font-size: 4rem;
+            color: #2E8B57;
+            position: absolute;
+            top: -10px;
+            left: 15px;
+            opacity: 0.2;
+        }
+
+        /* Custom Components */
+        .info-box {
+            background: linear-gradient(135deg, #e8f4fd 0%, #d4edda 100%);
+            border-left: 4px solid #2E8B57;
+            padding: 25px;
+            margin: 30px 0;
+            border-radius: 0 12px 12px 0;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .info-box h4 {
+            margin-bottom: 15px;
+            color: #2E8B57;
+            font-size: 1.3rem;
+            font-weight: 700;
+        }
+        
+        .bird-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 15px;
+            margin: 25px 0;
+        }
+        
+        .bird-item {
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 3px solid #2E8B57;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+        
+        .bird-scientific {
+            font-style: italic;
+            color: #666;
+            font-size: 0.9rem;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+        
+        .stat-card {
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            border: 1px solid #e0e0e0;
+        }
+        
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: #2E8B57;
+            display: block;
+            margin-bottom: 10px;
+        }
+        
+        .stat-label {
+            color: #666;
+            font-weight: 600;
+        }
+        
+        .lake-comparison {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+        
+        .lake-card {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+            border: 1px solid #e0e0e0;
+        }
+        
+        .lake-card h4 {
+            color: #2E8B57;
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+        
+        .highlight {
+            background: linear-gradient(120deg, #a8e6cf 0%, #dcedc1 100%);
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-weight: 600;
+        }
+        
+        .visitor-tips {
+            background: #fff3cd;
+            border: 1px solid #ffeaa7;
+            border-radius: 12px;
+            padding: 25px;
+            margin: 30px 0;
+        }
+
+        /* Blog Tags */
+        .blog-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+            margin: 40px 0;
+            padding: 0 20px;
+        }
+
+        .tag {
+            background: #f9fafc;
+            color: #666;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            border: 1px solid #e0e0e0;
+            transition: all 0.3s ease;
+        }
+
+        .tag:hover {
+            background: #2E8B57;
+            color: white;
+            border-color: #2E8B57;
+        }
+
+        /* Social Share */
+        .social-share {
+            text-align: center;
+            margin: 60px 0;
+            padding: 40px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 16px;
+            color: white;
+        }
+
+        .social-share p {
+            margin-bottom: 20px;
+            font-weight: 600;
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        .share-buttons {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .share-btn {
+            padding: 12px 25px;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            color: white;
+            font-size: 1rem;
+        }
+
+        .share-btn.facebook { background: #1877f2; }
+        .share-btn.twitter { background: #1da1f2; }
+        .share-btn.whatsapp { background: #25d366; }
+
+        .share-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Blog Navigation */
+        .blog-navigation {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 70px 0;
+            flex-wrap: wrap;
+            gap: 20px;
+            padding: 0 20px;
+        }
+
+        .nav-btn {
+            padding: 14px 28px;
+            border: 2px solid #000000;
+            border-radius: 10px;
+            text-decoration: none;
+            color: #000000;
+            background: transparent;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            text-align: center;
+            flex: 1;
+            min-width: 160px;
+            font-size: 1rem;
+        }
+
+        .nav-btn:hover {
+            border-color: #000000;
+            background: #000000;
+            color: #ffffff;
+            transform: translateY(-2px);
+        }
+
+        .nav-btn.back {
+            background: #000000;
+            color: #ffffff;
+            border-color: #000000;
+        }
+
+        .nav-btn.back:hover {
+            background: #333333;
+            border-color: #333333;
+        }
+
+        /* Related Blogs */
+        .related-blogs {
+            margin-top: 80px;
+            padding: 0 20px;
+        }
+
+        .related-blogs h2 {
+            text-align: center;
+            margin-bottom: 50px;
+            font-size: 2.2rem;
+            color: #333;
+            position: relative;
+        }
+
+        .related-blogs h2::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 3px;
+            background: #2E8B57;
+            margin: 15px auto 0;
+        }
+
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .card {
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            border: 1px solid #e0e0e0;
+            transition: all 0.3s ease;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card:hover {
+            box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+            transform: translateY(-5px);
+        }
+
+        .card-image {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .card-content {
+            padding: 25px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
+        .card-title {
+            font-size: 1.3rem;
+            margin-bottom: 12px;
+            color: #333;
+            line-height: 1.3;
+        }
+
+        .card-date {
+            color: #666;
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+        }
+
+        .card-text {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 20px;
+            flex-grow: 1;
+        }
+
+        .card-button {
+            display: inline-block;
+            background: #000;
+            color: white;
+            text-decoration: none;
+            padding: 12px 0;
+            border-radius: 8px;
+            font-weight: 600;
+            text-align: center;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 0.95rem;
+        }
+
+        .card-button:hover {
+            background: #333;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .blog-title {
+                font-size: 2rem;
+            }
+            
+            .featured-image img {
+                height: 250px;
+            }
+            
+            .blog-header {
+                margin: 20px 0 30px;
+            }
+            
+            .blog-content {
+                font-size: 1rem;
+                padding: 0 15px;
+            }
+            
+            .blog-content h2 {
+                font-size: 1.6rem;
+            }
+            
+            .blog-content h3 {
+                font-size: 1.3rem;
+            }
+            
+            .bird-list {
+                grid-template-columns: 1fr;
+            }
+            
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .lake-comparison {
+                grid-template-columns: 1fr;
+            }
+            
+            .blog-navigation {
+                flex-direction: column;
+            }
+            
+            .nav-btn {
+                width: 100%;
+            }
+            
+            .stat-number {
+                font-size: 2rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .blog-title {
+                font-size: 1.6rem;
+            }
+            
+            .featured-image img {
+                height: 200px;
+            }
+            
+            .blog-meta {
+                flex-direction: column;
+                gap: 8px;
+            }
+            
+            .social-share {
+                padding: 30px 20px;
+            }
+            
+            .share-buttons {
+                flex-direction: column;
+            }
+            
+            .share-btn {
+                width: 100%;
+            }
+            
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .info-box {
+                padding: 20px 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Backdrop for menu -->
+    <div class="body-backdrop" onclick="toggleMenu()"></div>
+    
+    <!-- Navigation -->
+    <nav>
+        <a href="../index.html" class="logo" style="text-decoration: none; color: inherit;">
+            <span class="name">udhwa</span>
+            <span class="dot-in">.in</span>
+        </a>
+        <button class="burger" onclick="toggleMenu()">☰</button>
+    </nav>
+
+    <!-- Close button -->
+    <button class="close-btn" onclick="toggleMenu()">✕</button>
+    
+    <!-- Sidebar Menu -->
+    <aside>
+        <a href="../index.html">Home</a>
+        <a href="../news.html">News</a>
+        <a href="../blogs.html">Blogs</a>
+        <a href="../listings.html">Listings</a>
+        <a href="../services.html">Services</a>
+        <a href="../contact.html">Contact</a>
+        <a href="../about.html">About</a>
+        <button class="login-btn">Login</button>
+    </aside>
+
+    <!-- Main Content -->
+    <main>
+        <article class="single-blog">
+            <div class="container">
+                <!-- Blog Header -->
+                <header class="blog-header">
+                    <div class="blog-category">Nature & Conservation</div>
+                    <h1 class="blog-title">Udhwa Lake Bird Sanctuary – Jharkhand's Hidden Paradise for Migratory Birds</h1>
+                    <div class="blog-meta">
+                        <span class="blog-date">October 21, 2025</span>
+                        <span class="blog-author">By Sarfaraj Alam</span>
+                        <span class="blog-read-time">• 7 min read</span>
+                    </div>
+                    <div class="featured-image">
+                        <img src="../images/blogs/udhwa-lake-bird-sanctuary.jpg" alt="Udhwa Lake Bird Sanctuary panoramic view with migratory birds" loading="lazy">
+                    </div>
+                </header>
+
+                <!-- Blog Content -->
+                <div class="blog-content">
+                    <p>Udhwa Lake Bird Sanctuary, located in the Sahibganj district of Jharkhand, is the state's only bird sanctuary and a true paradise for bird watchers and nature enthusiasts. Spanning across <strong>5.65 square kilometers</strong>, this wetland ecosystem is formed by two picturesque backwater lakes of the Ganges River — <strong>Patauda Lake and Berhale Lake</strong>.</p>
+
+                    <p>Recognized for its ecological importance, the sanctuary was declared a <span class="highlight">Ramsar Site on February 1, 2025</span>, highlighting its role as a vital habitat for numerous migratory and resident bird species.</p>
+
+                    <div class="info-box">
+                        <h4>🏆 Ramsar Site Recognition</h4>
+                        <p>Udhwa Lake Bird Sanctuary joined the prestigious list of Ramsar Wetlands of International Importance in 2025, recognizing its significant ecological value and contribution to global biodiversity conservation.</p>
+                    </div>
+
+                    <h2>Ecological Significance</h2>
+                    
+                    <p>Udhwa Lake Bird Sanctuary is a naturally formed Ganga backwater wetland, shaped through the <strong>oxbow lake concept</strong>. It plays an essential role in water regulation, storing excess water during floods and releasing it back into the river. The sanctuary's unique hydrological connection with the Ganga supports a diverse aquatic and terrestrial ecosystem.</p>
+                    
+                    <p>The <strong>National Mission for Clean Ganga (NMCG)</strong> has taken a special interest in conserving and managing this wetland due to its high ecological value and contribution to biodiversity conservation.</p>
+
+                    <h2>Bird Diversity</h2>
+                    
+                    <p>According to the <strong>Asian Waterbird Census (AWC) Report 2024</strong>, conducted between January 20–22, 2024, the sanctuary recorded remarkable biodiversity:</p>
+
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <span class="stat-number">58</span>
+                            <div class="stat-label">Bird Species</div>
+                        </div>
+                        <div class="stat-card">
+                            <span class="stat-number">18,009</span>
+                            <div class="stat-label">Individual Birds</div>
+                        </div>
+                        <div class="stat-card">
+                            <span class="stat-number">16</span>
+                            <div class="stat-label">Bird Families</div>
+                        </div>
+                        <div class="stat-card">
+                            <span class="stat-number">6</span>
+                            <div class="stat-label">Threatened Species</div>
+                        </div>
+                    </div>
+
+                    <p>The census documented species distribution across different categories:</p>
+                    
+                    <div class="bird-list">
+                        <div class="bird-item">
+                            <strong>45 species</strong> of water birds
+                        </div>
+                        <div class="bird-item">
+                            <strong>13 species</strong> of wetland-dependent birds
+                        </div>
+                        <div class="bird-item">
+                            <strong>18 resident</strong> species
+                        </div>
+                        <div class="bird-item">
+                            <strong>18 resident</strong> migrants
+                        </div>
+                        <div class="bird-item">
+                            <strong>22 migratory</strong> species
+                        </div>
+                    </div>
+
+                    <p>A total of <strong>18,009 individual birds</strong> were observed, including six globally threatened species — making Udhwa one of eastern India's most significant bird habitats.</p>
+
+                    <h3>Prominent Bird Species</h3>
+                    
+                    <p>Some of the frequently spotted birds include:</p>
+
+                    <div class="bird-list">
+                        <div class="bird-item">
+                            <strong>Intermediate Egret</strong>
+                            <div class="bird-scientific">Mesophoyx intermedia</div>
+                        </div>
+                        <div class="bird-item">
+                            <strong>Cattle Egret</strong>
+                            <div class="bird-scientific">Bubulcus ibis</div>
+                        </div>
+                        <div class="bird-item">
+                            <strong>Indian Pond Heron</strong>
+                            <div class="bird-scientific">Ardeola grayii</div>
+                        </div>
+                        <div class="bird-item">
+                            <strong>Asian Openbill Stork</strong>
+                            <div class="bird-scientific">Anastomus oscitans</div>
+                        </div>
+                        <div class="bird-item">
+                            <strong>Woolly-necked Stork</strong>
+                            <div class="bird-scientific">Ciconia episcopus</div>
+                        </div>
+                        <div class="bird-item">
+                            <strong>Lesser Adjutant Stork</strong>
+                            <div class="bird-scientific">Leptoptilos javanicus</div>
+                        </div>
+                        <div class="bird-item">
+                            <strong>Red-crested Pochard</strong>
+                            <div class="bird-scientific">Netta rufina</div>
+                        </div>
+                        <div class="bird-item">
+                            <strong>Purple Swamphen</strong>
+                            <div class="bird-scientific">Porphyrio porphyrio</div>
+                        </div>
+                    </div>
+
+                    <p>During the winter months, thousands of migratory birds arrive here from <strong>Siberia, Europe, and other parts of the world</strong>, transforming the sanctuary into a lively avian haven.</p>
+
+                    <h2>The Twin Lakes – Patauda and Berhale</h2>
+
+                    <div class="lake-comparison">
+                        <div class="lake-card">
+                            <h4>🌊 Patauda Lake</h4>
+                            <p><strong>Depth:</strong> Approximately 2 meters</p>
+                            <p><strong>Characteristics:</strong> Relatively deep lake surrounded by lush greenery</p>
+                            <p><strong>Habitat:</strong> Offers peaceful environment for aquatic life and nesting birds</p>
+                        </div>
+                        <div class="lake-card">
+                            <h4>🌿 Berhale Lake</h4>
+                            <p><strong>Depth:</strong> Approximately 70 cm</p>
+                            <p><strong>Characteristics:</strong> Shallow lake covered with aquatic vegetation</p>
+                            <p><strong>Habitat:</strong> Perfect for wading birds and aquatic species</p>
+                        </div>
+                    </div>
+
+                    <p>Both lakes are interconnected by a natural water channel that sustains the wetland throughout the year, creating a continuous ecosystem that supports diverse bird life.</p>
+
+                    <h2>Flora and Fauna</h2>
+                    
+                    <p>Apart from its avian diversity, Udhwa Lake Bird Sanctuary supports rich aquatic vegetation, plankton, and insect life, providing an ideal feeding ground for birds. The surrounding greenery also shelters small mammals, amphibians, and reptiles, enhancing the area's biodiversity.</p>
+
+                    <div class="info-box">
+                        <h4>🌱 Ecosystem Support</h4>
+                        <p>The sanctuary's rich aquatic vegetation and plankton base form the foundation of the food chain, supporting everything from insects to large migratory birds, creating a self-sustaining wetland ecosystem.</p>
+                    </div>
+
+                    <h2>Visitor Experience</h2>
+                    
+                    <p>Whether you are a bird enthusiast, photographer, or nature lover, Udhwa Lake Bird Sanctuary offers a serene and enriching experience.</p>
+
+                    <h3>Activities to Enjoy:</h3>
+                    <ul>
+                        <li><strong>Bird Watching:</strong> Best during early morning and evening hours</li>
+                        <li><strong>Photography:</strong> Capture rare birds, stunning reflections on the lakes, and scenic landscapes</li>
+                        <li><strong>Nature Walks:</strong> Explore the sanctuary's peaceful trails</li>
+                        <li><strong>Boating:</strong> Glide through calm waters surrounded by migratory birds</li>
+                    </ul>
+
+                    <div class="visitor-tips">
+                        <h4>📅 Best Time to Visit</h4>
+                        <p><strong>November to March</strong> - When migratory birds arrive and the weather is pleasant. Early mornings (6-9 AM) and late afternoons (4-6 PM) offer the best bird watching opportunities.</p>
+                    </div>
+
+                    <h2>Location and Accessibility</h2>
+                    
+                    <ul>
+                        <li><strong>District:</strong> Sahibganj, Jharkhand</li>
+                        <li><strong>Nearest Village:</strong> Udhwa (named after Saint Uddhava, a friend of Lord Krishna)</li>
+                        <li><strong>Nearest Airport:</strong> Birsa Munda Airport, Ranchi – approx. 400 km</li>
+                        <li><strong>Nearest Railway Station:</strong> Barharwa Junction – about 15 km</li>
+                        <li><strong>Connectivity:</strong> Well-linked by road with nearby towns and the Rajmahal subdivision</li>
+                    </ul>
+
+                    <h2>Nearby Attractions</h2>
+                    
+                    <ul>
+                        <li><strong>Rajmahal Hills:</strong> A geological marvel with historical significance</li>
+                        <li><strong>Farakka Barrage:</strong> A massive water management structure offering scenic views</li>
+                        <li><strong>Moti Jharna:</strong> A beautiful nearby waterfall ideal for short excursions</li>
+                    </ul>
+
+                    <h2>Conservation and Recognition</h2>
+                    
+                    <p>Established in <strong>1991</strong>, the Udhwa Lake Bird Sanctuary was created to protect and conserve local and migratory bird species. It is also recognized as an <strong>Important Bird Area (IBA)</strong> by conservation bodies for its crucial role in avian biodiversity preservation.</p>
+
+                    <p>Today, it stands as a symbol of Jharkhand's natural heritage and a testament to India's ongoing efforts in wetland and wildlife conservation.</p>
+
+                    <div class="info-box">
+                        <h4>🛡️ Conservation Status</h4>
+                        <p><strong>Established:</strong> 1991<br>
+                        <strong>Ramsar Site:</strong> 2025<br>
+                        <strong>Important Bird Area (IBA):</strong> Recognized<br>
+                        <strong>Managed by:</strong> Jharkhand Forest Department with NMCG support</p>
+                    </div>
+
+                    <h2>Conclusion</h2>
+                    
+                    <p>The Udhwa Lake Bird Sanctuary is not just Jharkhand's only bird sanctuary — it's a living ecosystem that connects nature, water, and wildlife in perfect harmony. Whether you visit to watch the migratory flocks or to soak in the peaceful beauty of the wetlands, Udhwa offers a truly unforgettable experience for every nature lover.</p>
+
+                    <p>With its recent recognition as a Ramsar Site, Udhwa Lake Bird Sanctuary has gained international importance, ensuring better protection and conservation for future generations to enjoy this natural treasure.</p>
+                </div>
+
+                <!-- Blog Tags -->
+                <div class="blog-tags">
+                    <span class="tag">Udhwa Lake</span>
+                    <span class="tag">Bird Sanctuary</span>
+                    <span class="tag">Ramsar Site</span>
+                    <span class="tag">Migratory Birds</span>
+                    <span class="tag">Sahibganj</span>
+                    <span class="tag">Wildlife Conservation</span>
+                    <span class="tag">Jharkhand Tourism</span>
+                    <span class="tag">Wetland Ecosystem</span>
+                </div>
+
+                <!-- Social Share -->
+                <div class="social-share">
+                    <p>Enjoyed this guide? Share it with fellow nature enthusiasts:</p>
+                    <div class="share-buttons">
+                        <button class="share-btn facebook" onclick="shareOnFacebook()">📘 Facebook</button>
+                        <button class="share-btn twitter" onclick="shareOnTwitter()">🐦 Twitter</button>
+                        <button class="share-btn whatsapp" onclick="shareOnWhatsApp()">💬 WhatsApp</button>
+                    </div>
+                </div>
+
+                <!-- Navigation -->
+                <div class="blog-navigation">
+                    <a href="blog-2.html" class="nav-btn prev">← Phone Se Coding</a>
+                    <a href="../blogs.html" class="nav-btn back">📚 All Blog Posts</a>
+                    <a href="blog-1.html" class="nav-btn next">Computer Skills →</a>
+                </div>
+
+                <!-- Related Blogs -->
+                <section class="related-blogs">
+                    <h2>More Stories You Might Like</h2>
+                    <div class="cards-grid">
+                        <div class="card">
+                            <img src="../images/blogs/computer-skills.jpg" alt="Computer Skills Importance" class="card-image" loading="lazy">
+                            <div class="card-content">
+                                <h3 class="card-title">Computer Era Mein Skills Ka Mahatva</h3>
+                                <div class="card-date">October 4, 2024</div>
+                                <p class="card-text">Essential computer skills everyone should learn in the digital age for career growth and daily life.</p>
+                                <a href="blog-1.html" class="card-button">Read More</a>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <img src="../images/blogs/phone-coding.jpg" alt="Phone Coding" class="card-image" loading="lazy">
+                            <div class="card-content">
+                                <h3 class="card-title">Phone Se Coding Shuru Kare</h3>
+                                <div class="card-date">October 7, 2024</div>
+                                <p class="card-text">Learn how to start coding and web development using just your smartphone without a laptop.</p>
+                                <a href="blog-2.html" class="card-button">Read More</a>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </article>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <section class="top">
+            <ul>
+                <li>
+                    <h3>Udhwa.in</h3>
+                    <a href="../about.html">About Us</a>
+                    <a href="../contact.html">Contact</a>
+                    <a href="../contribute.html">Contribute</a> 
+                    <a href="../sitemap.html">Sitemap</a>
+                </li>
+                <li>
+                    <h3>Our Services</h3>
+                    <a href="../services.html">All Services</a>
+                    <a href="../listings.html">Listings</a>
+                    <a href="../news.html">Local News</a>
+                    <a href="../blogs.html">Community Blogs</a>
+                </li>
+                <li>
+                    <h3>Resources</h3>
+                    <a href="../emergency-contacts.html">Emergency Contacts</a>
+                    <a href="../important-numbers.html">Important Numbers</a>
+                    <a href="../local-guide.html">Udhwa Guide</a>
+                    <a href="../downloads.html">Downloads</a>
+                </li>
+                <li>
+                    <h3>Connect</h3>
+                    <a href="https://wa.me/yournumber">WhatsApp</a>
+                    <a href="https://facebook.com/udhwain">Facebook</a>
+                    <a href="https://www.instagram.com/udhwa.in">Instagram</a>
+                    <a href="mailto:contact@udhwa.in">Email Us</a>
+                </li>
+            </ul>
+        </section>
+        <section class="bottom">
+            <p>Made with ♥️ by Sarfaraj • © <span id="current-year">2025</span> udhwa.in</p>
+        </section>
+    </footer>
+
+    <script>
+        // Social sharing functions
+        function shareOnFacebook() {
+            const url = encodeURIComponent(window.location.href);
+            const title = encodeURIComponent(document.title);
+            window.open(`https://www.facebook.com/sharer/sharer.php?u=${url}&t=${title}`, '_blank');
+        }
+
+        function shareOnTwitter() {
+            const url = encodeURIComponent(window.location.href);
+            const text = encodeURIComponent("Check out this complete guide to Udhwa Lake Bird Sanctuary - Jharkhand's hidden paradise for migratory birds!");
+            window.open(`https://twitter.com/intent/tweet?url=${url}&text=${text}`, '_blank');
+        }
+
+        function shareOnWhatsApp() {
+            const url = encodeURIComponent(window.location.href);
+            const text = encodeURIComponent("Check out this complete guide to Udhwa Lake Bird Sanctuary - Jharkhand's hidden paradise for migratory birds! " + url);
+            window.open(`https://wa.me/?text=${text}`, '_blank');
+        }
+        
+        // Set current year in footer
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+        
+        // Image lazy loading
+        document.addEventListener('DOMContentLoaded', function() {
+            const images = document.querySelectorAll('img[loading="lazy"]');
+            
+            if ('IntersectionObserver' in window) {
+                const imageObserver = new IntersectionObserver((entries, observer) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            const img = entry.target;
+                            img.src = img.src;
+                            imageObserver.unobserve(img);
+                        }
+                    });
+                });
+
+                images.forEach(img => {
+                    imageObserver.observe(img);
+                });
+            }
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
