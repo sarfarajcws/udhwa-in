@@ -1,6 +1,14 @@
 {
   "recentNews": [
     {
+  "id": 3,
+  "title": "+2 High School Udhwa Annual Sports 2026 Announced",
+  "excerpt": "Annual Sports Meet with track & field events for students. Registration opens January 2026.",
+  "date": "2025-01-08",
+  "image": "../images/news/school-sports-2026.jpg",
+  "link": "news/news-3.html"
+},
+    {
     "id": 2,
     "title": "झारखंड बोर्ड परीक्षा फरवरी-मार्च में; उत्कृष्ट विद्यालय शिक्षक प्रतिनियुक्ति शुरू",
     "excerpt": "मैट्रिक-इंटर परीक्षाएँ फरवरी-मार्च में होंगी। उत्कृष्ट विद्यालयों में प्रतिनियुक्ति के लिए TNA में सफल शिक्षकों को 15 अक्तूबर तक ई-विद्यावाहिनी पर आवेदन करना होगा।",
