@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://udhwa.in/sitemap.xml

@@ -1,0 +1,38 @@
+[
+  {
+    "id": 1,
+    "title": "Udhwa Lake Bird Sanctuary: Jharkhand’s Hidden Paradise for Migratory Birds",
+    "excerpt": "Discover Jharkhand’s only bird sanctuary, known for migratory birds, twin lakes, Ramsar recognition, and peaceful wetland beauty.",
+    "date": "2025-10-21",
+    "image": "../images/blogs/udhwa-lake-bird-sanctuary.jpg",
+    "category": "nature",
+    "readTime": 8,
+    "author": "Sarfaraj",
+    "tags": ["udhwa", "bird sanctuary", "nature"],
+    "link": "../blogs/udhwa-lake-bird-sanctuary-jharkhand-guide.html"
+  },
+  {
+    "id": 2,
+    "title": "Jami Masjid Rajmahal: A Grand Mughal-Era Monument in Jharkhand",
+    "excerpt": "Explore the historic Jami Masjid of Rajmahal, a remarkable Mughal-era monument built by Raja Man Singh in the 16th century.",
+    "date": "2026-04-22",
+    "image": "../images/blogs/jami-masjid-rajmahal-mughal.jpg",
+    "category": "heritage",
+    "readTime": 7,
+    "author": "Sarfaraj",
+    "tags": ["rajmahal", "history", "mosque"],
+    "link": "../blogs/jami-masjid-rajmahal-mughal-monument-jharkhand.html"
+  },
+  {
+    "id": 3,
+    "title": "Why I Built Udhwa.in",
+    "excerpt": "The story behind building Udhwa.in, a digital platform created to give local identity, visibility, and opportunity to Udhwa.",
+    "date": "2026-04-22",
+    "image": "../images/blogs/udhwa-in-logo.jpg",
+    "category": "technology",
+    "readTime": 6,
+    "author": "Sarfaraj",
+    "tags": ["udhwa", "startup", "digital"],
+    "link": "../blogs/why-i-built-udhwa-founder-story.html"
+  }
+]

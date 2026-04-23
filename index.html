@@ -1,0 +1,348 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Udhwa - News, Blogs & Listings</title>
+    <meta
+      name="description"
+      content="Stay updated with Udhwa and Jharkhand's latest news, explore blogs, discover local listings, and find essential services - all in one place."
+    />
+    <link rel="icon" href="/favicon.ico" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/home.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=DM+Sans:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- ────────────── NAV ────────────── -->
+    <!-- Mobile Menu Backdrop -->
+    <div class="menu-backdrop" id="menuBackdrop"></div>
+
+    <!-- Mobile Menu (slide over nav with close button) -->
+    <div class="mobile-menu" id="mobileMenu">
+      <button
+        class="mobile-menu-close"
+        id="mobileMenuClose"
+        aria-label="Close menu"
+      >
+        <svg
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+      <a href="index.html">Home</a>
+      <a href="news.html">News</a>
+      <a href="blogs.html">Blogs</a>
+      <a href="listings.html">Listings</a>
+      <a href="services.html">Services</a>
+      <a href="contact.html">Contact</a>
+      <a href="about.html">About</a>
+      <button class="nav-login-btn">Login</button>
+    </div>
+
+    <nav>
+      <a href="/" class="logo"> <span>udhwa</span><span>.in</span> </a>
+
+      <!-- Desktop Nav -->
+      <div class="desktop-nav">
+        <a href="index.html">Home</a>
+        <a href="news.html">News</a>
+        <a href="blogs.html">Blogs</a>
+        <a href="listings.html">Listings</a>
+        <a href="services.html">Services</a>
+        <a href="contact.html">Contact</a>
+        <a href="about.html">About</a>
+        <button class="nav-login-btn">Login</button>
+      </div>
+
+      <!-- Mobile Burger -->
+      <button class="burger" id="burgerBtn" aria-label="Toggle menu">
+        <span class="burger-line"></span>
+        <span class="burger-line"></span>
+        <span class="burger-line"></span>
+      </button>
+    </nav>
+
+    <!-- ────────────── HERO ────────────── -->
+    <section
+      class="hero-grain relative flex items-center justify-center min-h-[85vh] overflow-hidden"
+    >
+      <!-- BG gradient mesh -->
+      <div
+        class="absolute inset-0 bg-gradient-to-br from-[#e8e4da] via-[#f5f3ee] to-[#dde9e4]"
+      ></div>
+      <!-- Decorative blobs -->
+      <div
+        class="absolute top-16 left-[10%] w-72 h-72 rounded-full bg-[#c9ddd1] opacity-40 blur-3xl"
+      ></div>
+      <div
+        class="absolute bottom-10 right-[8%] w-96 h-96 rounded-full bg-[#e0d8c8] opacity-50 blur-3xl"
+      ></div>
+      <div
+        class="absolute top-1/3 right-1/4 w-48 h-48 rounded-full bg-white opacity-30 blur-2xl"
+      ></div>
+
+      <!-- Glass center card -->
+      <div
+        class="relative z-10 flex flex-col items-center text-center max-w-3xl mx-auto px-6"
+      >
+        <span
+          class="hero-text-1 glass-card text-xs font-semibold tracking-[0.18em] uppercase text-ink-muted px-5 py-2 rounded-full mb-7"
+        >
+          A Community Platform
+        </span>
+        <h1
+          class="hero-text-2 font-display text-5xl md:text-7xl font-bold text-ink leading-[1.05] mb-5"
+        >
+          Your Digital<br />Identity
+        </h1>
+        <p
+          class="hero-text-3 text-base md:text-lg text-ink-light leading-relaxed max-w-xl mb-10"
+        >
+          Stay updated with Udhwa and Jharkhand's latest news, explore blogs,
+          discover businesses, and find essential services — all in one place.
+        </p>
+        <div class="hero-text-4 flex flex-wrap gap-3 justify-center">
+          <a
+            href="news.html"
+            class="btn-primary bg-ink text-cream font-semibold px-7 py-3.5 rounded-xl text-sm shadow-lg shadow-black/20"
+          >
+            Explore News
+          </a>
+          <a
+            href="blogs.html"
+            class="btn-ghost border border-ink/20 glass-card text-ink font-semibold px-7 py-3.5 rounded-xl text-sm"
+          >
+            Discover Blogs
+          </a>
+        </div>
+      </div>
+
+      <!-- Bottom fade -->
+      <div
+        class="absolute bottom-0 left-0 right-0 h-28 bg-gradient-to-t from-cream to-transparent pointer-events-none"
+      ></div>
+    </section>
+
+    <!-- ────────────── LATEST NEWS ────────────── -->
+    <section class="py-24 px-5 md:px-10 bg-cream">
+      <div class="max-w-6xl mx-auto">
+        <div class="flex items-end justify-between mb-12">
+          <div>
+            <span class="section-tag">Latest</span>
+            <h2
+              class="font-display text-4xl md:text-5xl font-bold text-ink mt-2"
+            >
+              Latest News
+            </h2>
+          </div>
+          <a
+            href="news.html"
+            class="view-all-link text-sm font-semibold text-ink-muted pb-0.5"
+            >View All News →</a
+          >
+        </div>
+
+        <div
+          id="latest-news"
+          class="grid grid-cols-1 md:grid-cols-3 gap-7"
+          id="news-grid"
+        >
+          <!-- News cards will be loaded by JavaScript -->
+        </div>
+
+        <div class="text-center mt-12">
+          <a
+            href="news.html"
+            class="btn-ghost inline-block border border-ink/20 text-ink font-semibold px-8 py-3 rounded-xl text-sm tracking-wide"
+            >View All News</a
+          >
+        </div>
+      </div>
+    </section>
+
+    <!-- ────────────── LATEST BLOGS ────────────── -->
+    <section
+      class="py-24 px-5 md:px-10"
+      style="background: linear-gradient(135deg, #eeeae2 0%, #f5f2eb 100%)"
+    >
+      <div class="max-w-6xl mx-auto">
+        <div class="flex items-end justify-between mb-12">
+          <div>
+            <span class="section-tag">Stories</span>
+            <h2
+              class="font-display text-4xl md:text-5xl font-bold text-ink mt-2"
+            >
+              Latest Blogs
+            </h2>
+          </div>
+          <a
+            href="blogs.html"
+            class="view-all-link text-sm font-semibold text-ink-muted pb-0.5"
+            >View All Blogs →</a
+          >
+        </div>
+
+        <div id="latest-blogs" class="grid grid-cols-1 md:grid-cols-3 gap-7">
+          <!-- Blog cards will be loaded by JavaScript -->
+        </div>
+
+        <div class="text-center mt-12">
+          <a
+            href="blogs.html"
+            class="btn-ghost inline-block border border-ink/20 text-ink font-semibold px-8 py-3 rounded-xl text-sm tracking-wide"
+            >View All Blogs</a
+          >
+        </div>
+      </div>
+    </section>
+
+    <!-- ────────────── FOOTER ────────────── -->
+    <footer class="bg-ink text-cream/70">
+      <div class="max-w-6xl mx-auto px-5 md:px-10 pt-16 pb-6">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-10 mb-12">
+          <div>
+            <div class="flex items-center gap-0.5 mb-6">
+              <span class="font-display text-xl font-bold text-cream"
+                >udhwa</span
+              >
+              <span class="font-display text-xl font-bold text-cream/50"
+                >.in</span
+              >
+            </div>
+            <div class="flex flex-col gap-2">
+              <a
+                href="about.html"
+                class="footer-link text-sm text-cream/50 hover:text-cream transition-colors"
+                >About Us</a
+              >
+              <a
+                href="contact.html"
+                class="footer-link text-sm text-cream/50 hover:text-cream transition-colors"
+                >Contact</a
+              >
+              <a
+                href="contact.html"
+                class="footer-link text-sm text-cream/50 hover:text-cream transition-colors"
+                >Contribute</a
+              >
+              <a
+                href="#"
+                class="footer-link text-sm text-cream/50 hover:text-cream transition-colors"
+                >Manifesto</a
+              >
+            </div>
+          </div>
+          <div>
+            <h3
+              class="text-xs font-bold uppercase tracking-[0.15em] text-cream mb-6"
+            >
+              Explore
+            </h3>
+            <div class="flex flex-col gap-2">
+              <a
+                href="news.html"
+                class="footer-link text-sm text-cream/50 hover:text-cream transition-colors"
+                >News</a
+              >
+              <a
+                href="blogs.html"
+                class="footer-link text-sm text-cream/50 hover:text-cream transition-colors"
+                >Blogs</a
+              >
+              <a
+                href="listings.html"
+                class="footer-link text-sm text-cream/50 hover:text-cream transition-colors"
+                >Listings</a
+              >
+              <a
+                href="services.html"
+                class="footer-link text-sm text-cream/50 hover:text-cream transition-colors"
+                >Services</a
+              >
+            </div>
+          </div>
+          <div>
+            <h3
+              class="text-xs font-bold uppercase tracking-[0.15em] text-cream mb-6"
+            >
+              Discover
+            </h3>
+            <div class="flex flex-col gap-2">
+              <a
+                href="news.html"
+                class="footer-link text-sm text-cream/50 hover:text-cream transition-colors"
+                >Latest News</a
+              >
+              <a
+                href="blogs.html"
+                class="footer-link text-sm text-cream/50 hover:text-cream transition-colors"
+                >Featured Blogs</a
+              >
+              <a
+                href="listings.html"
+                class="footer-link text-sm text-cream/50 hover:text-cream transition-colors"
+                >Local Listing</a
+              >
+              <a
+                href="services.html"
+                class="footer-link text-sm text-cream/50 hover:text-cream transition-colors"
+                >All Services</a
+              >
+            </div>
+          </div>
+          <div>
+            <h3
+              class="text-xs font-bold uppercase tracking-[0.15em] text-cream mb-6"
+            >
+              Connect
+            </h3>
+            <div class="flex flex-col gap-2">
+              <a
+                href="https://wa.link/vlv8bs"
+                class="footer-link text-sm text-cream/50 hover:text-cream transition-colors"
+                >WhatsApp</a
+              >
+              <a
+                href="#"
+                class="footer-link text-sm text-cream/50 hover:text-cream transition-colors"
+                >Facebook</a
+              >
+              <a
+                href="https://instagram.com/udhwa.in"
+                class="footer-link text-sm text-cream/50 hover:text-cream transition-colors"
+                >Instagram</a
+              >
+              <a
+                href="mailto:sarfarajcws@gmail.com"
+                class="footer-link text-sm text-cream/50 hover:text-cream transition-colors"
+                >Email Us</a
+              >
+            </div>
+          </div>
+        </div>
+        <div class="border-t border-white/10 pt-6 text-center">
+          <p class="text-xs text-cream/30">
+            Made with ♥️ by Sarfaraj &nbsp;•&nbsp; ©
+            <span id="current-year"></span> udhwa.in
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/home.js"></script>
+  </body>
+</html>

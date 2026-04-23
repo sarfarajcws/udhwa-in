@@ -1,0 +1,8 @@
+    .section-tag { display: inline-block; font-size: 0.68rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: #6b6b6b; border-bottom: 2px solid #0a0a0a; padding-bottom: 2px; }
+    img { display: block; width: 100%; object-fit: cover; }
+    .page-hero { background: linear-gradient(135deg, #e8e4da 0%, #f0ede6 50%, #dde3dd 100%); }
+    .blob1 { position: absolute; top: -40px; right: 5%; width: 320px; height: 320px; border-radius: 50%; background: rgba(180,200,185,0.35); filter: blur(60px); pointer-events: none; }
+    .blob2 { position: absolute; bottom: -60px; left: 8%; width: 260px; height: 260px; border-radius: 50%; background: rgba(220,210,190,0.4); filter: blur(50px); pointer-events: none; }
+    .category-pill { transition: background 0.2s, color 0.2s; cursor: pointer; }
+    .category-pill.active { background: #0a0a0a; color: #faf9f6; }
+    .category-pill:not(.active):hover { background: rgba(0,0,0,0.07); }

@@ -1,0 +1,12 @@
+.btn-primary:hover { background: #3a3a3a; transform: translateY(-1px); }
+    .section-tag { display: inline-block; font-size: 0.68rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: #6b6b6b; border-bottom: 2px solid #0a0a0a; padding-bottom: 2px; }
+    img { display: block; width: 100%; object-fit: cover; }
+    .page-hero { background: linear-gradient(135deg, #e4e8e0 0%, #ede8e0 50%, #e0e8ec 100%); }
+    .blob1 { position: absolute; top: -40px; left: 5%; width: 300px; height: 300px; border-radius: 50%; background: rgba(160,195,175,0.3); filter: blur(55px); pointer-events: none; }
+    .blob2 { position: absolute; bottom: -50px; right: 8%; width: 240px; height: 240px; border-radius: 50%; background: rgba(200,185,160,0.35); filter: blur(45px); pointer-events: none; }
+    .category-pill { transition: background 0.2s, color 0.2s; cursor: pointer; }
+    .category-pill.active { background: #0a0a0a; color: #faf9f6; }
+    .category-pill:not(.active):hover { background: rgba(0,0,0,0.07); }
+    /* Featured post styles */
+    .featured-post { transition: transform 0.25s ease, box-shadow 0.25s ease; }
+    .featured-post:hover { transform: translateY(-4px); box-shadow: 0 24px 48px rgba(0,0,0,0.1); }

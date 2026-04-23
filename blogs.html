@@ -1,0 +1,278 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Blogs - Community Insights | Udhwa.in</title>
+    <meta
+      name="description"
+      content="Read interesting blogs and stories from Udhwa. Cultural insights, technology tips, and community perspectives."
+    />
+    <link rel="icon" href="/favicon.ico" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/blog.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=DM+Sans:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- ────────────── NAV ────────────── -->
+    <!-- Mobile Menu Backdrop -->
+    <div class="menu-backdrop" id="menuBackdrop"></div>
+
+    <!-- Mobile Menu (slide over nav with close button) -->
+    <div class="mobile-menu" id="mobileMenu">
+      <button
+        class="mobile-menu-close"
+        id="mobileMenuClose"
+        aria-label="Close menu"
+      >
+        <svg
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+      <a href="index.html">Home</a>
+      <a href="news.html">News</a>
+      <a href="blogs.html">Blogs</a>
+      <a href="listings.html">Listings</a>
+      <a href="services.html">Services</a>
+      <a href="contact.html">Contact</a>
+      <a href="about.html">About</a>
+      <button class="nav-login-btn">Login</button>
+    </div>
+
+    <nav>
+      <a href="/" class="logo"> <span>udhwa</span><span>.in</span> </a>
+
+      <!-- Desktop Nav -->
+      <div class="desktop-nav">
+        <a href="index.html">Home</a>
+        <a href="news.html">News</a>
+        <a href="blogs.html">Blogs</a>
+        <a href="listings.html">Listings</a>
+        <a href="services.html">Services</a>
+        <a href="contact.html">Contact</a>
+        <a href="about.html">About</a>
+        <button class="nav-login-btn">Login</button>
+      </div>
+
+      <!-- Mobile Burger -->
+      <button class="burger" id="burgerBtn" aria-label="Toggle menu">
+        <span class="burger-line"></span>
+        <span class="burger-line"></span>
+        <span class="burger-line"></span>
+      </button>
+    </nav>
+
+    <!-- PAGE HERO -->
+    <section class="page-hero relative overflow-hidden py-20 md:py-28 px-5">
+      <div class="blob1"></div>
+      <div class="blob2"></div>
+      <div class="relative z-10 max-w-3xl mx-auto text-center">
+        <span class="section-tag">Stories & Insights</span>
+        <h1
+          class="font-display text-5xl md:text-6xl font-bold text-ink mt-4 mb-5"
+        >
+          Blogs & Stories
+        </h1>
+        <p class="text-ink-muted text-lg leading-relaxed max-w-xl mx-auto">
+          Discover stories, insights, and perspectives from Udhwa and beyond
+        </p>
+      </div>
+    </section>
+
+    <main class="py-16 px-5 md:px-10">
+      <div class="max-w-6xl mx-auto">
+        <!-- Category filter -->
+        <div class="flex flex-wrap gap-2 mb-10 justify-center">
+          <button
+            class="category-pill active text-xs font-semibold tracking-wide px-5 py-2 rounded-full border border-ink/15"
+          >
+            All
+          </button>
+          <button
+            class="category-pill text-xs font-semibold tracking-wide px-5 py-2 rounded-full border border-ink/15 text-ink-muted"
+          >
+            Technology
+          </button>
+          <button
+            class="category-pill text-xs font-semibold tracking-wide px-5 py-2 rounded-full border border-ink/15 text-ink-muted"
+          >
+            Nature
+          </button>
+          <button
+            class="category-pill text-xs font-semibold tracking-wide px-5 py-2 rounded-full border border-ink/15 text-ink-muted"
+          >
+            Culture
+          </button>
+          <button
+            class="category-pill text-xs font-semibold tracking-wide px-5 py-2 rounded-full border border-ink/15 text-ink-muted"
+          >
+            History
+          </button>
+        </div>
+
+        <!-- Blog grid -->
+        <div id="blog-posts" class="grid grid-cols-1 md:grid-cols-3 gap-7">
+          <!-- Blogs will be render here -->
+        </div>
+
+        <div id="loading" class="text-center py-10 text-ink-muted hidden">
+          Loading blogs...
+        </div>
+
+        <!-- Pagination -->
+        <div
+          id="pagination"
+          class="flex justify-center items-center gap-2 mt-14"
+        ></div>
+      </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="bg-ink text-cream/70">
+      <div class="max-w-6xl mx-auto px-5 md:px-10 pt-16 pb-6">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-10 mb-12">
+          <div>
+            <div class="flex items-center gap-0.5 mb-6">
+              <span class="font-display text-xl font-bold text-cream"
+                >udhwa</span
+              >
+              <span class="font-display text-xl font-bold text-cream/50"
+                >.in</span
+              >
+            </div>
+            <div class="flex flex-col gap-2">
+              <a
+                href="about.html"
+                class="footer-link text-sm text-cream/50 hover:text-cream transition-colors"
+                >About Us</a
+              >
+              <a
+                href="contact.html"
+                class="footer-link text-sm text-cream/50 hover:text-cream transition-colors"
+                >Contact</a
+              >
+              <a
+                href="contact.html"
+                class="footer-link text-sm text-cream/50 hover:text-cream transition-colors"
+                >Contribute</a
+              >
+              <a
+                href="#"
+                class="footer-link text-sm text-cream/50 hover:text-cream transition-colors"
+                >Manifesto</a
+              >
+            </div>
+          </div>
+          <div>
+            <h3
+              class="text-xs font-bold uppercase tracking-[0.15em] text-cream mb-6"
+            >
+              Explore
+            </h3>
+            <div class="flex flex-col gap-2">
+              <a
+                href="news.html"
+                class="footer-link text-sm text-cream/50 hover:text-cream transition-colors"
+                >News</a
+              >
+              <a
+                href="blogs.html"
+                class="footer-link text-sm text-cream/50 hover:text-cream transition-colors"
+                >Blogs</a
+              >
+              <a
+                href="listings.html"
+                class="footer-link text-sm text-cream/50 hover:text-cream transition-colors"
+                >Listings</a
+              >
+              <a
+                href="services.html"
+                class="footer-link text-sm text-cream/50 hover:text-cream transition-colors"
+                >Services</a
+              >
+            </div>
+          </div>
+          <div>
+            <h3
+              class="text-xs font-bold uppercase tracking-[0.15em] text-cream mb-6"
+            >
+              Discover
+            </h3>
+            <div class="flex flex-col gap-2">
+              <a
+                href="news.html"
+                class="footer-link text-sm text-cream/50 hover:text-cream transition-colors"
+                >Latest News</a
+              >
+              <a
+                href="blogs.html"
+                class="footer-link text-sm text-cream/50 hover:text-cream transition-colors"
+                >Featured Blogs</a
+              >
+              <a
+                href="listings.html"
+                class="footer-link text-sm text-cream/50 hover:text-cream transition-colors"
+                >Local Listing</a
+              >
+              <a
+                href="services.html"
+                class="footer-link text-sm text-cream/50 hover:text-cream transition-colors"
+                >All Services</a
+              >
+            </div>
+          </div>
+          <div>
+            <h3
+              class="text-xs font-bold uppercase tracking-[0.15em] text-cream mb-6"
+            >
+              Connect
+            </h3>
+            <div class="flex flex-col gap-2">
+              <a
+                href="https://wa.link/vlv8bs"
+                class="footer-link text-sm text-cream/50 hover:text-cream transition-colors"
+                >WhatsApp</a
+              >
+              <a
+                href="#"
+                class="footer-link text-sm text-cream/50 hover:text-cream transition-colors"
+                >Facebook</a
+              >
+              <a
+                href="https://instagram.com/udhwa.in"
+                class="footer-link text-sm text-cream/50 hover:text-cream transition-colors"
+                >Instagram</a
+              >
+              <a
+                href="mailto:sarfarajcws@gmail.com"
+                class="footer-link text-sm text-cream/50 hover:text-cream transition-colors"
+                >Email Us</a
+              >
+            </div>
+          </div>
+        </div>
+        <div class="border-t border-white/10 pt-6 text-center">
+          <p class="text-xs text-cream/30">
+            Made with ♥️ by Sarfaraj &nbsp;•&nbsp; ©
+            <span id="current-year"></span> udhwa.in
+          </p>
+        </div>
+      </div>
+    </footer>
+    <script src="js/main.js"></script>
+    <script src="js/blog.js"></script>
+  </body>
+</html>

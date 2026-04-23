@@ -1,0 +1,60 @@
+{
+  "recentNews": [
+    {
+      "id": 1,
+      "title": "+2 High School Udhwa Launches Official Website for Online Admissions",
+      "excerpt": "Students will soon be able to register and apply online through the newly launched official website highschooludhwa.in.",
+      "date": "2026-04-23",
+      "image": "../images/news/high-school-udhwa-website.jpg",
+      "category": "education",
+      "link": "../news/high-school-udhwa-online-admissions-website.html"
+    },
+    {
+      "id": 2,
+      "title": "IMD Issues Heatwave Alerts as Temperatures Rise Across Several Indian States",
+      "excerpt": "Several states are under heatwave alerts as temperatures rise sharply across Northwest, Central, and East India.",
+      "date": "2026-04-23",
+      "image": "../images/news/intense-sun-and-heatwave-conditions-with-thermometer.jpg",
+      "category": "weather",
+      "link": "../news/imd-heatwave-alert-india-april-2026.html"
+    },
+    {
+      "id": 3,
+      "title": "AI Tools See Rapid Growth Among Students and Professionals in 2026",
+      "excerpt": "AI adoption is rising fast in 2026, with growing usage among students, offices, and professionals worldwide.",
+      "date": "2026-04-23",
+      "image": "../images/news/abstract-AI-brain-network.jpg",
+      "category": "technology",
+      "link": "../news/ai-tools-growth-students-professionals-2026.html"
+    }
+  ],
+  "recentBlogs": [
+    {
+      "id": 1,
+      "title": "Udhwa Lake Bird Sanctuary: Jharkhand’s Hidden Paradise for Migratory Birds",
+      "excerpt": "Explore Jharkhand’s only bird sanctuary, known for migratory birds, Ramsar recognition, and peaceful wetland beauty.",
+      "date": "2025-10-21",
+      "image": "../images/blogs/udhwa-lake-bird-sanctuary.jpg",
+      "category": "nature",
+      "link": "../blogs/udhwa-lake-bird-sanctuary-jharkhand-guide.html"
+    },
+    {
+      "id": 2,
+      "title": "Jami Masjid Rajmahal: A Grand Mughal-Era Monument in Jharkhand",
+      "excerpt": "Discover the historic Jami Masjid of Rajmahal, a remarkable Mughal-era monument built in the 16th century.",
+      "date": "2026-04-22",
+      "image": "../images/blogs/jami-masjid-rajmahal-mughal.jpg",
+      "category": "heritage",
+      "link": "../blogs/jami-masjid-rajmahal-mughal-monument-jharkhand.html"
+    },
+    {
+      "id": 3,
+      "title": "Why I Built Udhwa.in",
+      "excerpt": "Read the story behind building Udhwa.in, a platform created to give local identity and digital visibility to Udhwa.",
+      "date": "2026-04-22",
+      "image": "../images/blogs/udhwa-in-logo.jpg",
+      "category": "technology",
+      "link": "../blogs/why-i-built-udhwa-founder-story.html"
+    }
+  ]
+}

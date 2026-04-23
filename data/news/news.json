@@ -1,0 +1,29 @@
+[
+  {
+    "id": 1,
+    "title": "+2 High School Udhwa Launches Official Website for Online Admissions",
+    "excerpt": "+2 High School Udhwa has launched its official website highschooludhwa.in, where students will be able to register and apply for admissions online.",
+    "date": "2026-04-23",
+    "image": "../images/news/high-school-udhwa-website.jpg",
+    "category": "Education",
+    "link": "../news/high-school-udhwa-online-admissions-website.html"
+  },
+  {
+    "id": 2,
+    "title": "IMD Issues Heatwave Alerts as Temperatures Rise Across Several Indian States",
+    "excerpt": "The India Meteorological Department has issued heatwave alerts for multiple states as temperatures cross 44°C in some regions.",
+    "date": "2026-04-23",
+    "image": "../images/news/intense-sun-and-heatwave-conditions-with-thermometer.jpg",
+    "category": "Weather",
+    "link": "../news/imd-heatwave-alert-india-april-2026.html"
+  },
+  {
+    "id": 3,
+    "title": "AI Tools See Rapid Growth Among Students and Professionals in 2026",
+    "excerpt": "Artificial Intelligence tools are seeing major growth in 2026 as students and professionals increasingly use them for learning and productivity.",
+    "date": "2026-04-23",
+    "image": "../images/news/abstract-AI-brain-network.jpg",
+    "category": "Technology",
+    "link": "../news/ai-tools-growth-students-professionals-2026.html"
+  }
+]

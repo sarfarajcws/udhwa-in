@@ -1,0 +1,581 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Services - Udhwa Digital Platform</title>
+    <meta
+      name="description"
+      content="Digital services for Udhwa community — website development, digital marketing, local listings and more."
+    />
+    <link rel="icon" href="/favicon.ico" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/services.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=DM+Sans:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- ────────────── NAV ────────────── -->
+    <!-- Mobile Menu Backdrop -->
+    <div class="menu-backdrop" id="menuBackdrop"></div>
+
+    <!-- Mobile Menu (slide over nav with close button) -->
+    <div class="mobile-menu" id="mobileMenu">
+      <button
+        class="mobile-menu-close"
+        id="mobileMenuClose"
+        aria-label="Close menu"
+      >
+        <svg
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+      <a href="index.html">Home</a>
+      <a href="news.html">News</a>
+      <a href="blogs.html">Blogs</a>
+      <a href="listings.html">Listings</a>
+      <a href="services.html">Services</a>
+      <a href="contact.html">Contact</a>
+      <a href="about.html">About</a>
+      <button class="nav-login-btn">Login</button>
+    </div>
+
+    <nav>
+      <a href="/" class="logo"> <span>udhwa</span><span>.in</span> </a>
+
+      <!-- Desktop Nav -->
+      <div class="desktop-nav">
+        <a href="index.html">Home</a>
+        <a href="news.html">News</a>
+        <a href="blogs.html">Blogs</a>
+        <a href="listings.html">Listings</a>
+        <a href="services.html">Services</a>
+        <a href="contact.html">Contact</a>
+        <a href="about.html">About</a>
+        <button class="nav-login-btn">Login</button>
+      </div>
+
+      <!-- Mobile Burger -->
+      <button class="burger" id="burgerBtn" aria-label="Toggle menu">
+        <span class="burger-line"></span>
+        <span class="burger-line"></span>
+        <span class="burger-line"></span>
+      </button>
+    </nav>
+    <!-- PAGE HERO -->
+    <section class="page-hero relative overflow-hidden py-20 md:py-28 px-5">
+      <div class="blob1"></div>
+      <div class="blob2"></div>
+      <div class="relative z-10 max-w-3xl mx-auto text-center">
+        <span class="section-tag">What We Offer</span>
+        <h1
+          class="font-display text-5xl md:text-6xl font-bold text-ink mt-4 mb-5"
+        >
+          Our Services
+        </h1>
+        <p class="text-ink-muted text-lg leading-relaxed max-w-xl mx-auto">
+          Digital tools and community services designed to help Udhwa grow,
+          connect, and thrive in the modern world.
+        </p>
+      </div>
+    </section>
+
+    <!-- MAIN CONTENT -->
+    <main class="py-16 px-5 md:px-10">
+      <div class="max-w-6xl mx-auto">
+        <!-- Section label -->
+        <div class="text-center mb-12">
+          <span class="section-tag">Core Offerings</span>
+          <h2 class="font-display text-4xl font-bold text-ink mt-3">
+            What We Do
+          </h2>
+        </div>
+
+        <!-- Services grid -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-7 mb-20">
+          <!-- Card: Local News -->
+          <div
+            class="service-card glass-card rounded-2xl p-8 flex flex-col gap-5 border border-black/5 hover:border-black/15 transition-all duration-300"
+          >
+            <div class="icon-circle bg-blue-50 text-blue-600">📰</div>
+            <div>
+              <h3 class="font-display text-xl font-bold text-ink mb-2">
+                Local News Coverage
+              </h3>
+              <p class="text-sm text-ink-muted leading-relaxed">
+                Stay informed with authentic, verified news from Udhwa,
+                Sahibganj, and Jharkhand. We report what matters to the
+                community — education, governance, events, and local
+                developments.
+              </p>
+            </div>
+            <ul class="flex flex-col gap-2 mt-auto">
+              <li class="flex items-center gap-2 text-xs text-ink-muted">
+                <span class="text-emerald-500">✓</span> Breaking local updates
+              </li>
+              <li class="flex items-center gap-2 text-xs text-ink-muted">
+                <span class="text-emerald-500">✓</span> School & education news
+              </li>
+              <li class="flex items-center gap-2 text-xs text-ink-muted">
+                <span class="text-emerald-500">✓</span> Government announcements
+              </li>
+            </ul>
+            <a
+              href="news.html"
+              class="mt-2 text-xs font-semibold text-ink hover:underline inline-flex items-center gap-1"
+              >Read News →</a
+            >
+          </div>
+
+          <!-- Card: Community Blogs -->
+          <div
+            class="service-card glass-card rounded-2xl p-8 flex flex-col gap-5 border border-black/5 hover:border-black/15 transition-all duration-300"
+          >
+            <div class="icon-circle bg-emerald-50 text-emerald-600">✍️</div>
+            <div>
+              <h3 class="font-display text-xl font-bold text-ink mb-2">
+                Community Blogging
+              </h3>
+              <p class="text-sm text-ink-muted leading-relaxed">
+                A platform for local writers and thinkers to share stories,
+                insights, and perspectives. From cultural heritage to digital
+                skills, every voice has a place here.
+              </p>
+            </div>
+            <ul class="flex flex-col gap-2 mt-auto">
+              <li class="flex items-center gap-2 text-xs text-ink-muted">
+                <span class="text-emerald-500">✓</span> Culture & heritage
+                stories
+              </li>
+              <li class="flex items-center gap-2 text-xs text-ink-muted">
+                <span class="text-emerald-500">✓</span> Technology & skill
+                guides
+              </li>
+              <li class="flex items-center gap-2 text-xs text-ink-muted">
+                <span class="text-emerald-500">✓</span> Nature & environment
+              </li>
+            </ul>
+            <a
+              href="blogs.html"
+              class="mt-2 text-xs font-semibold text-ink hover:underline inline-flex items-center gap-1"
+              >Read Blogs →</a
+            >
+          </div>
+
+          <!-- Card: Local Listings -->
+          <div
+            class="service-card glass-card rounded-2xl p-8 flex flex-col gap-5 border border-black/5 hover:border-black/15 transition-all duration-300"
+          >
+            <div class="icon-circle bg-amber-50 text-amber-600">🏪</div>
+            <div>
+              <h3 class="font-display text-xl font-bold text-ink mb-2">
+                Local Business Listings
+              </h3>
+              <p class="text-sm text-ink-muted leading-relaxed">
+                Discover and support local businesses in Udhwa. From restaurants
+                and shops to medical services, find what you need right in your
+                community.
+              </p>
+            </div>
+            <ul class="flex flex-col gap-2 mt-auto">
+              <li class="flex items-center gap-2 text-xs text-ink-muted">
+                <span class="text-emerald-500">✓</span> Shops & restaurants
+              </li>
+              <li class="flex items-center gap-2 text-xs text-ink-muted">
+                <span class="text-emerald-500">✓</span> Medical & services
+              </li>
+              <li class="flex items-center gap-2 text-xs text-ink-muted">
+                <span class="text-emerald-500">✓</span> Free business listing
+              </li>
+            </ul>
+            <a
+              href="listings.html"
+              class="mt-2 text-xs font-semibold text-ink hover:underline inline-flex items-center gap-1"
+              >Explore Listings →</a
+            >
+          </div>
+
+          <!-- Card: Website Development -->
+          <div
+            class="service-card glass-card rounded-2xl p-8 flex flex-col gap-5 border border-black/5 hover:border-black/15 transition-all duration-300"
+          >
+            <div class="icon-circle bg-purple-50 text-purple-600">💻</div>
+            <div>
+              <div class="flex items-center gap-2 mb-2">
+                <h3 class="font-display text-xl font-bold text-ink">
+                  Website Development
+                </h3>
+                <span
+                  class="text-[10px] font-bold uppercase tracking-wider text-purple-600 bg-purple-50 px-2 py-0.5 rounded-full border border-purple-200"
+                  >Coming Soon</span
+                >
+              </div>
+              <p class="text-sm text-ink-muted leading-relaxed">
+                Professional website creation for local businesses, schools, and
+                organizations. Clean, fast, and mobile-friendly websites built
+                with modern technology.
+              </p>
+            </div>
+            <ul class="flex flex-col gap-2 mt-auto">
+              <li class="flex items-center gap-2 text-xs text-ink-muted">
+                <span class="text-ink-muted/50">◦</span> Custom design &
+                branding
+              </li>
+              <li class="flex items-center gap-2 text-xs text-ink-muted">
+                <span class="text-ink-muted/50">◦</span> Mobile-responsive
+                layouts
+              </li>
+              <li class="flex items-center gap-2 text-xs text-ink-muted">
+                <span class="text-ink-muted/50">◦</span> Affordable pricing
+              </li>
+            </ul>
+            <a
+              href="contact.html"
+              class="mt-2 text-xs font-semibold text-ink-muted inline-flex items-center gap-1"
+              >Get Notified →</a
+            >
+          </div>
+
+          <!-- Card: Digital Marketing -->
+          <div
+            class="service-card glass-card rounded-2xl p-8 flex flex-col gap-5 border border-black/5 hover:border-black/15 transition-all duration-300"
+          >
+            <div class="icon-circle bg-rose-50 text-rose-600">📣</div>
+            <div>
+              <div class="flex items-center gap-2 mb-2">
+                <h3 class="font-display text-xl font-bold text-ink">
+                  Digital Marketing
+                </h3>
+                <span
+                  class="text-[10px] font-bold uppercase tracking-wider text-rose-600 bg-rose-50 px-2 py-0.5 rounded-full border border-rose-200"
+                  >Coming Soon</span
+                >
+              </div>
+              <p class="text-sm text-ink-muted leading-relaxed">
+                Grow your local business with targeted digital marketing —
+                social media management, content creation, and community
+                outreach tailored for Udhwa.
+              </p>
+            </div>
+            <ul class="flex flex-col gap-2 mt-auto">
+              <li class="flex items-center gap-2 text-xs text-ink-muted">
+                <span class="text-ink-muted/50">◦</span> Social media management
+              </li>
+              <li class="flex items-center gap-2 text-xs text-ink-muted">
+                <span class="text-ink-muted/50">◦</span> Content creation
+              </li>
+              <li class="flex items-center gap-2 text-xs text-ink-muted">
+                <span class="text-ink-muted/50">◦</span> Local audience
+                targeting
+              </li>
+            </ul>
+            <a
+              href="contact.html"
+              class="mt-2 text-xs font-semibold text-ink-muted inline-flex items-center gap-1"
+              >Get Notified →</a
+            >
+          </div>
+
+          <!-- Card: Community Platform -->
+          <div
+            class="service-card glass-card rounded-2xl p-8 flex flex-col gap-5 border border-black/5 hover:border-black/15 transition-all duration-300"
+          >
+            <div class="icon-circle bg-teal-50 text-teal-600">🌐</div>
+            <div>
+              <div class="flex items-center gap-2 mb-2">
+                <h3 class="font-display text-xl font-bold text-ink">
+                  Community Platform
+                </h3>
+                <span
+                  class="text-[10px] font-bold uppercase tracking-wider text-teal-600 bg-teal-50 px-2 py-0.5 rounded-full border border-teal-200"
+                  >Coming Soon</span
+                >
+              </div>
+              <p class="text-sm text-ink-muted leading-relaxed">
+                A dedicated space for Udhwa residents to connect, discuss, and
+                collaborate. Share events, ask questions, and build a stronger
+                local community online.
+              </p>
+            </div>
+            <ul class="flex flex-col gap-2 mt-auto">
+              <li class="flex items-center gap-2 text-xs text-ink-muted">
+                <span class="text-ink-muted/50">◦</span> Community discussions
+              </li>
+              <li class="flex items-center gap-2 text-xs text-ink-muted">
+                <span class="text-ink-muted/50">◦</span> Local event
+                announcements
+              </li>
+              <li class="flex items-center gap-2 text-xs text-ink-muted">
+                <span class="text-ink-muted/50">◦</span> Resident directory
+              </li>
+            </ul>
+            <a
+              href="contact.html"
+              class="mt-2 text-xs font-semibold text-ink-muted inline-flex items-center gap-1"
+              >Get Notified →</a
+            >
+          </div>
+        </div>
+
+        <!-- "List Your Business" feature strip -->
+        <div
+          class="glass-card rounded-2xl p-8 md:p-12 flex flex-col md:flex-row items-center justify-between gap-8 mb-20 border border-black/8 shadow-sm"
+        >
+          <div class="max-w-lg">
+            <span class="section-tag mb-3 block">Free Service</span>
+            <h2 class="font-display text-3xl font-bold text-ink mb-3">
+              List Your Business for Free
+            </h2>
+            <p class="text-ink-muted leading-relaxed">
+              Have a shop, restaurant, or service in Udhwa? Get your business
+              discovered by the local community. Listing is completely free — no
+              hidden charges.
+            </p>
+          </div>
+          <div class="flex-shrink-0 flex flex-col sm:flex-row gap-3">
+            <a
+              href="contact.html"
+              class="btn-primary bg-ink text-cream font-semibold px-7 py-3.5 rounded-xl text-sm text-center shadow-lg shadow-black/20"
+              >Add Your Business</a
+            >
+            <a
+              href="listings.html"
+              class="btn-ghost border border-ink/20 glass-card text-ink font-semibold px-7 py-3.5 rounded-xl text-sm text-center"
+              >Browse Listings</a
+            >
+          </div>
+        </div>
+
+        <!-- How it works -->
+        <div class="text-center mb-12">
+          <span class="section-tag">Simple Process</span>
+          <h2 class="font-display text-4xl font-bold text-ink mt-3">
+            How It Works
+          </h2>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-7 mb-20">
+          <div class="text-center px-4">
+            <div
+              class="w-14 h-14 rounded-2xl bg-ink text-cream font-display text-2xl font-bold flex items-center justify-center mx-auto mb-5"
+            >
+              1
+            </div>
+            <h3 class="font-display text-xl font-bold text-ink mb-3">
+              Reach Out
+            </h3>
+            <p class="text-sm text-ink-muted leading-relaxed">
+              Contact us through our contact page or WhatsApp. Tell us about
+              your business or what service you need.
+            </p>
+          </div>
+          <div class="text-center px-4">
+            <div
+              class="w-14 h-14 rounded-2xl bg-ink text-cream font-display text-2xl font-bold flex items-center justify-center mx-auto mb-5"
+            >
+              2
+            </div>
+            <h3 class="font-display text-xl font-bold text-ink mb-3">
+              We Set It Up
+            </h3>
+            <p class="text-sm text-ink-muted leading-relaxed">
+              Our team will help you get listed, create your profile, or set up
+              any digital service you need — quickly and hassle-free.
+            </p>
+          </div>
+          <div class="text-center px-4">
+            <div
+              class="w-14 h-14 rounded-2xl bg-ink text-cream font-display text-2xl font-bold flex items-center justify-center mx-auto mb-5"
+            >
+              3
+            </div>
+            <h3 class="font-display text-xl font-bold text-ink mb-3">
+              Grow Together
+            </h3>
+            <p class="text-sm text-ink-muted leading-relaxed">
+              Reach more people in the community, grow your presence, and
+              contribute to making Udhwa's digital identity stronger.
+            </p>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- CTA BANNER -->
+    <section class="cta-section py-20 px-5 text-center">
+      <div class="max-w-2xl mx-auto">
+        <span
+          class="text-xs font-bold uppercase tracking-[0.18em] text-white/40 mb-4 block"
+          >Get Involved</span
+        >
+        <h2 class="font-display text-4xl md:text-5xl font-bold text-white mb-5">
+          Ready to Work Together?
+        </h2>
+        <p class="text-white/60 text-lg leading-relaxed mb-10">
+          Whether you want to list your business, contribute a blog, or
+          collaborate on a project — we'd love to hear from you.
+        </p>
+        <div class="flex flex-wrap gap-3 justify-center">
+          <a
+            href="contact.html"
+            class="bg-white text-ink font-semibold px-8 py-3.5 rounded-xl text-sm shadow-lg hover:bg-cream transition-colors"
+            >Contact Us</a
+          >
+          <a
+            href="about.html"
+            class="border border-white/20 text-white font-semibold px-8 py-3.5 rounded-xl text-sm hover:bg-white/10 transition-colors"
+            >Learn About Us</a
+          >
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-ink text-cream/70">
+      <div class="max-w-6xl mx-auto px-5 md:px-10 pt-16 pb-6">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-10 mb-12">
+          <div>
+            <div class="flex items-center gap-0.5 mb-6">
+              <span class="font-display text-xl font-bold text-cream"
+                >udhwa</span
+              >
+              <span class="font-display text-xl font-bold text-cream/50"
+                >.in</span
+              >
+            </div>
+            <div class="flex flex-col gap-2">
+              <a
+                href="about.html"
+                class="footer-link text-sm text-cream/50 hover:text-cream transition-colors"
+                >About Us</a
+              >
+              <a
+                href="contact.html"
+                class="footer-link text-sm text-cream/50 hover:text-cream transition-colors"
+                >Contact</a
+              >
+              <a
+                href="contact.html"
+                class="footer-link text-sm text-cream/50 hover:text-cream transition-colors"
+                >Contribute</a
+              >
+              <a
+                href="#"
+                class="footer-link text-sm text-cream/50 hover:text-cream transition-colors"
+                >Manifesto</a
+              >
+            </div>
+          </div>
+          <div>
+            <h3
+              class="text-xs font-bold uppercase tracking-[0.15em] text-cream mb-6"
+            >
+              Explore
+            </h3>
+            <div class="flex flex-col gap-2">
+              <a
+                href="news.html"
+                class="footer-link text-sm text-cream/50 hover:text-cream transition-colors"
+                >News</a
+              >
+              <a
+                href="blogs.html"
+                class="footer-link text-sm text-cream/50 hover:text-cream transition-colors"
+                >Blogs</a
+              >
+              <a
+                href="listings.html"
+                class="footer-link text-sm text-cream/50 hover:text-cream transition-colors"
+                >Listings</a
+              >
+              <a
+                href="services.html"
+                class="footer-link text-sm text-cream/50 hover:text-cream transition-colors"
+                >Services</a
+              >
+            </div>
+          </div>
+          <div>
+            <h3
+              class="text-xs font-bold uppercase tracking-[0.15em] text-cream mb-6"
+            >
+              Discover
+            </h3>
+            <div class="flex flex-col gap-2">
+              <a
+                href="news.html"
+                class="footer-link text-sm text-cream/50 hover:text-cream transition-colors"
+                >Latest News</a
+              >
+              <a
+                href="blogs.html"
+                class="footer-link text-sm text-cream/50 hover:text-cream transition-colors"
+                >Featured Blogs</a
+              >
+              <a
+                href="listings.html"
+                class="footer-link text-sm text-cream/50 hover:text-cream transition-colors"
+                >Local Listing</a
+              >
+              <a
+                href="services.html"
+                class="footer-link text-sm text-cream/50 hover:text-cream transition-colors"
+                >All Services</a
+              >
+            </div>
+          </div>
+          <div>
+            <h3
+              class="text-xs font-bold uppercase tracking-[0.15em] text-cream mb-6"
+            >
+              Connect
+            </h3>
+            <div class="flex flex-col gap-2">
+              <a
+                href="https://wa.link/vlv8bs"
+                class="footer-link text-sm text-cream/50 hover:text-cream transition-colors"
+                >WhatsApp</a
+              >
+              <a
+                href="#"
+                class="footer-link text-sm text-cream/50 hover:text-cream transition-colors"
+                >Facebook</a
+              >
+              <a
+                href="https://instagram.com/udhwa.in"
+                class="footer-link text-sm text-cream/50 hover:text-cream transition-colors"
+                >Instagram</a
+              >
+              <a
+                href="mailto:sarfarajcws@gmail.com"
+                class="footer-link text-sm text-cream/50 hover:text-cream transition-colors"
+                >Email Us</a
+              >
+            </div>
+          </div>
+        </div>
+        <div class="border-t border-white/10 pt-6 text-center">
+          <p class="text-xs text-cream/30">
+            Made with ♥️ by Sarfaraj &nbsp;•&nbsp; ©
+            <span id="current-year"></span> udhwa.in
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/services.js"></script>
+  </body>
+</html>
