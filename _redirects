@@ -1,0 +1,15 @@
+/news/news-2.html /news.html 301
+/news/news-3.html /news.html 301
+/news/news-4.html /news.html 301
+/blogs/blog-3.html /blogs/udhwa-lake-bird-sanctuary-jharkhand-guide.html.html 301
+
+/blogs/about.html /about.html 301
+/blogs/contact.html /contact.html 301
+/blogs/services.html /services.html 301
+/blogs/business.html /businesses.html 301
+/blogs/local-guide.html /blogs.html 301
+/blogs/important-numbers.html /blogs.html 301
+
+http://udhwa.in/* https://udhwa.in/:splat 301!
+https://www.udhwa.in/* https://udhwa.in/:splat 301!
+http://www.udhwa.in/* https://udhwa.in/:splat 301!
