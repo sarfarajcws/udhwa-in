@@ -1,11 +1,21 @@
 {
   "recentNews": [
     {
+      "id": 6,
+      "title": "Why Sahibganj District is Famous in Jharkhand: History, Ganga & Tourist Places",
+      "excerpt": "Sahibganj is known for the holy Ganga river, historical sites, Udhwa Bird Sanctuary, Motijharna waterfall, and its rich cultural heritage in Jharkhand.",
+      "date": "2026-05-01",
+      "image": "../images/blogs/the-ganga-river-at-sahibganj.jpg",
+      "category": "history",
+      "link": "../blogs/why-sahibganj-district-famous-jharkhand.html"
+    },
+    {
       "id": 5,
       "title": "Sahibganj District Topper List 2026 Released in JAC Class 10 Results",
       "excerpt": "Ruksar Khatun topped Sahibganj district with 484 marks in the JAC Class 10 results 2026, while students from multiple schools delivered excellent performances.",
       "date": "2026-04-23",
       "image": "../images/news/students-celebrating-exam-results.jpg",
+      "category": "education",
       "link": "../news/sahibganj-district-topper-list-jac-class-10-results-2026.html"
     },
     {
@@ -14,6 +24,7 @@
       "excerpt": "Raj Kumar secured 477 marks and 95.40 percent to emerge as the top performer of +2 High School Udhwa in the JAC Class 10 board results.",
       "date": "2026-04-23",
       "image": "../images/news/high-school-udhwa-toppers.jpg",
+      "category": "education",
       "link": "../news/jac-class-10-results-2026-udhwa-school-toppers.html"
     },
     {
