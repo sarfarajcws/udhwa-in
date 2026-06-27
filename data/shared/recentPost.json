@@ -1,15 +1,6 @@
 {
   "recentNews": [
     {
-      "id": 6,
-      "title": "Why Sahibganj District is Famous in Jharkhand: History, Ganga & Tourist Places",
-      "excerpt": "Sahibganj is known for the holy Ganga river, historical sites, Udhwa Bird Sanctuary, Motijharna waterfall, and its rich cultural heritage in Jharkhand.",
-      "date": "2026-05-01",
-      "image": "../images/blogs/the-ganga-river-at-sahibganj.jpg",
-      "category": "history",
-      "link": "../blogs/why-sahibganj-district-famous-jharkhand.html"
-    },
-    {
       "id": 5,
       "title": "Sahibganj District Topper List 2026 Released in JAC Class 10 Results",
       "excerpt": "Ruksar Khatun topped Sahibganj district with 484 marks in the JAC Class 10 results 2026, while students from multiple schools delivered excellent performances.",
@@ -56,6 +47,15 @@
     }
   ],
   "recentBlogs": [
+    {
+      "id": 4,
+      "title": "Why Sahibganj District is Famous in Jharkhand: History, Ganga & Tourist Places",
+      "excerpt": "Sahibganj is known for the holy Ganga river, historical sites, Udhwa Bird Sanctuary, Motijharna waterfall, and its rich cultural heritage in Jharkhand.",
+      "date": "2026-05-01",
+      "image": "../images/blogs/the-ganga-river-at-sahibganj.jpg",
+      "category": "history",
+      "link": "../blogs/why-sahibganj-district-famous-jharkhand.html"
+    },
     {
       "id": 1,
       "title": "Udhwa Lake Bird Sanctuary: Jharkhand’s Hidden Paradise for Migratory Birds",
