@@ -1,0 +1,26 @@
+# Dependencies (each app installs its own)
+node_modules/
+
+# Build output
+.next/
+out/
+dist/
+build/
+*.tsbuildinfo
+next-env.d.ts
+
+# Generated Prisma client (created by `npm install` / `npm run db:generate` in udhwa-api)
+udhwa-api/src/generated/
+
+# Environment files — never commit secrets
+.env
+.env.*
+!.env.example
+
+# Tooling
+.vercel
+.turbo
+coverage/
+.DS_Store
+*.pem
+npm-debug.log*

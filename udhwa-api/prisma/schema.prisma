@@ -1,0 +1,805 @@
+// Udhwa 2.0 — data model
+//
+// Principles
+// - Users contribute; Team/Admin owns everything that is published.
+// - Every publishable entity carries the same lifecycle (ContentStatus),
+//   SEO fields, and audit columns (createdBy / updatedBy / timestamps).
+// - "Locality" makes the platform place-agnostic (village, town, city…).
+// - Long-form text is stored as validated Tiptap JSON, never raw HTML.
+// - Images live in Cloudinary; Media rows hold the reference + metadata.
+
+generator client {
+  provider     = "prisma-client"
+  output       = "../src/generated/prisma"
+  moduleFormat = "esm"
+}
+
+// Connection URLs live in prisma.config.ts (Prisma 7).
+datasource db {
+  provider = "postgresql"
+}
+
+// ─────────────────────────────────────────────────────────────
+// Enums
+// ─────────────────────────────────────────────────────────────
+
+enum Role {
+  USER
+  ADMIN
+}
+
+enum UserStatus {
+  ACTIVE
+  SUSPENDED
+}
+
+/// Lifecycle shared by all published content.
+/// "Unpublish" moves PUBLISHED → DRAFT. "Archive" hides without deleting.
+enum ContentStatus {
+  DRAFT
+  IN_REVIEW
+  PUBLISHED
+  ARCHIVED
+}
+
+enum CategoryKind {
+  PLACE
+  BUSINESS
+  SERVICE
+  NEWS
+  BLOG
+  PHOTO
+}
+
+enum LocalityKind {
+  VILLAGE
+  TOWN
+  CITY
+  NEIGHBORHOOD
+  BLOCK
+  DISTRICT
+  STATE
+  REGION
+  COUNTRY
+}
+
+enum MediaProvider {
+  CLOUDINARY
+  /// Assets bundled with the app (e.g. migrated seed images in /public).
+  STATIC
+}
+
+enum ProviderType {
+  INDIVIDUAL
+  BUSINESS
+}
+
+enum ContributionType {
+  BLOG
+  NEWS
+  PLACE
+  BUSINESS
+  SERVICE
+  PHOTO
+}
+
+enum ContributionStatus {
+  SUBMITTED
+  UNDER_REVIEW
+  CHANGES_REQUESTED
+  APPROVED
+  PUBLISHED
+  REJECTED
+  WITHDRAWN
+}
+
+enum CorrectionKind {
+  /// Something on the page is wrong.
+  CORRECTION
+  /// Information has changed (new phone, new hours…).
+  UPDATE
+  /// "I own / run this business."
+  OWNERSHIP_CLAIM
+}
+
+enum CorrectionStatus {
+  OPEN
+  IN_REVIEW
+  RESOLVED
+  DISMISSED
+}
+
+enum MessageStatus {
+  NEW
+  READ
+  ARCHIVED
+}
+
+// ─────────────────────────────────────────────────────────────
+// Identity (Auth.js tables + Udhwa profile fields)
+// ─────────────────────────────────────────────────────────────
+
+model User {
+  id            String     @id @default(cuid())
+  name          String?
+  email         String?    @unique
+  emailVerified DateTime?
+  image         String?
+  username      String?    @unique
+  bio           String?    @db.VarChar(280)
+  role          Role       @default(USER)
+  status        UserStatus @default(ACTIVE)
+  createdAt     DateTime   @default(now())
+  updatedAt     DateTime   @updatedAt
+  lastSeenAt    DateTime?
+
+  accounts Account[]
+  sessions Session[]
+  author   Author?
+
+  contributions        Contribution[] @relation("ContributionAuthor")
+  reviewedContribution Contribution[] @relation("ContributionReviewer")
+  corrections          Correction[]   @relation("CorrectionAuthor")
+  resolvedCorrections  Correction[]   @relation("CorrectionResolver")
+  uploads              Media[]
+  contributedPhotos    Photo[]        @relation("PhotoContributor")
+  auditLogs            AuditLog[]
+  contactMessages      ContactMessage[]
+
+  createdPlaces     Place[]       @relation("PlaceCreatedBy")
+  updatedPlaces     Place[]       @relation("PlaceUpdatedBy")
+  createdBusinesses Business[]    @relation("BusinessCreatedBy")
+  updatedBusinesses Business[]    @relation("BusinessUpdatedBy")
+  createdServices   Service[]     @relation("ServiceCreatedBy")
+  updatedServices   Service[]     @relation("ServiceUpdatedBy")
+  createdNews       NewsArticle[] @relation("NewsCreatedBy")
+  updatedNews       NewsArticle[] @relation("NewsUpdatedBy")
+  createdBlogs      BlogPost[]    @relation("BlogCreatedBy")
+  updatedBlogs      BlogPost[]    @relation("BlogUpdatedBy")
+
+  @@index([role])
+  @@index([createdAt])
+}
+
+model Account {
+  id                String  @id @default(cuid())
+  userId            String
+  type              String
+  provider          String
+  providerAccountId String
+  refresh_token     String? @db.Text
+  access_token      String? @db.Text
+  expires_at        Int?
+  token_type        String?
+  scope             String?
+  id_token          String? @db.Text
+  session_state     String?
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([provider, providerAccountId])
+  @@index([userId])
+}
+
+model Session {
+  id           String   @id @default(cuid())
+  sessionToken String   @unique
+  userId       String
+  expires      DateTime
+  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+  @@index([expires])
+}
+
+model VerificationToken {
+  identifier String
+  token      String   @unique
+  expires    DateTime
+
+  @@unique([identifier, token])
+}
+
+/// Public byline for News/Blogs. May be linked to a User account
+/// (e.g. a contributor whose blog was published) or stand alone
+/// (e.g. "Udhwa Desk", a guest writer).
+model Author {
+  id        String   @id @default(cuid())
+  slug      String   @unique
+  name      String
+  bio       String?  @db.VarChar(500)
+  avatarUrl String?
+  userId    String?  @unique
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  user  User?         @relation(fields: [userId], references: [id], onDelete: SetNull)
+  news  NewsArticle[]
+  blogs BlogPost[]
+}
+
+// ─────────────────────────────────────────────────────────────
+// Taxonomy & geography
+// ─────────────────────────────────────────────────────────────
+
+/// A community/area the platform covers. Hierarchical, so Udhwa (village)
+/// can sit inside Sahibganj (district) inside Jharkhand (state) — and new
+/// towns/cities can be added without code changes.
+model Locality {
+  id          String       @id @default(cuid())
+  slug        String       @unique
+  name        String
+  kind        LocalityKind
+  description String?
+  parentId    String?
+  latitude    Float?
+  longitude   Float?
+  isPrimary   Boolean      @default(false)
+  createdAt   DateTime     @default(now())
+  updatedAt   DateTime     @updatedAt
+
+  parent     Locality?     @relation("LocalityTree", fields: [parentId], references: [id], onDelete: SetNull)
+  children   Locality[]    @relation("LocalityTree")
+  places     Place[]
+  businesses Business[]
+  services   Service[]
+  news       NewsArticle[]
+  blogs      BlogPost[]
+
+  @@index([parentId])
+}
+
+model Category {
+  id          String       @id @default(cuid())
+  kind        CategoryKind
+  slug        String
+  name        String
+  description String?
+  sortOrder   Int          @default(0)
+  createdAt   DateTime     @default(now())
+  updatedAt   DateTime     @updatedAt
+
+  places     Place[]
+  businesses Business[]
+  services   Service[]
+  news       NewsArticle[]
+  blogs      BlogPost[]
+  photos     Photo[]
+
+  @@unique([kind, slug])
+  @@index([kind, sortOrder])
+}
+
+model Tag {
+  id        String   @id @default(cuid())
+  slug      String   @unique
+  name      String
+  createdAt DateTime @default(now())
+
+  news   NewsArticle[]
+  blogs  BlogPost[]
+  photos Photo[]
+}
+
+// ─────────────────────────────────────────────────────────────
+// Media
+// ─────────────────────────────────────────────────────────────
+
+model Media {
+  id           String        @id @default(cuid())
+  provider     MediaProvider @default(CLOUDINARY)
+  /// Cloudinary public_id (null for STATIC assets)
+  publicId     String?       @unique
+  url          String
+  width        Int?
+  height       Int?
+  format       String?
+  bytes        Int?
+  alt          String        @default("")
+  caption      String?
+  credit       String?
+  uploadedById String?
+  createdAt    DateTime      @default(now())
+  updatedAt    DateTime      @updatedAt
+  /// Deprecated and unused (media are now deleted outright). Kept for one
+  /// release so a rolling deploy doesn't break the previous version; drop next.
+  deletedAt    DateTime?
+
+  uploadedBy User? @relation(fields: [uploadedById], references: [id], onDelete: SetNull)
+
+  photo           Photo?
+  /// Rich-text (Tiptap) image references, rebuilt on every save.
+  usages          MediaUsage[]
+  placeCovers     Place[]       @relation("PlaceCover")
+  businessCovers  Business[]    @relation("BusinessCover")
+  serviceCovers   Service[]     @relation("ServiceCover")
+  newsCovers      NewsArticle[] @relation("NewsCover")
+  blogCovers      BlogPost[]    @relation("BlogCover")
+
+  @@index([createdAt])
+  @@index([uploadedById])
+}
+
+/// Where a Media record is embedded inside rich text (Tiptap image nodes
+/// carry the media id). Covers and photos reference Media through their own
+/// foreign keys; this table covers everything else, so a Media row is never
+/// deleted while content still shows it.
+model MediaUsage {
+  id        String   @id @default(cuid())
+  mediaId   String
+  /// "place" | "business" | "service" | "news" | "blog" | "contribution"
+  ownerType String
+  ownerId   String
+  /// Rich-text field name ("about", "history", "description", "content")
+  field     String
+  createdAt DateTime @default(now())
+
+  media Media @relation(fields: [mediaId], references: [id], onDelete: Restrict)
+
+  @@unique([mediaId, ownerType, ownerId, field])
+  @@index([ownerType, ownerId])
+}
+
+// ─────────────────────────────────────────────────────────────
+// Core content
+// ─────────────────────────────────────────────────────────────
+
+/// A physical location / point of interest (lake, station, school…).
+model Place {
+  id          String        @id @default(cuid())
+  slug        String        @unique
+  name        String
+  summary     String        @db.VarChar(300)
+  /// Tiptap JSON
+  about       Json?
+  /// Tiptap JSON
+  history     Json?
+  address     String?
+  latitude    Float?
+  longitude   Float?
+  categoryId  String?
+  localityId  String?
+  coverId     String?
+  featured    Boolean       @default(false)
+  status      ContentStatus @default(DRAFT)
+  publishedAt DateTime?
+  verifiedAt  DateTime?
+
+  seoTitle       String?
+  seoDescription String?
+  canonicalUrl   String?
+  noIndex        Boolean @default(false)
+
+  createdById String?
+  updatedById String?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  category  Category? @relation(fields: [categoryId], references: [id], onDelete: SetNull)
+  locality  Locality? @relation(fields: [localityId], references: [id], onDelete: SetNull)
+  cover     Media?    @relation("PlaceCover", fields: [coverId], references: [id], onDelete: Restrict)
+  createdBy User?     @relation("PlaceCreatedBy", fields: [createdById], references: [id], onDelete: SetNull)
+  updatedBy User?     @relation("PlaceUpdatedBy", fields: [updatedById], references: [id], onDelete: SetNull)
+
+  businesses    Business[]
+  services      Service[]
+  news          NewsArticle[]
+  blogs         BlogPost[]
+  photos        Photo[]
+  contributions Contribution[]
+  corrections   Correction[]
+
+  @@index([status, publishedAt])
+  @@index([categoryId])
+  @@index([localityId])
+}
+
+/// An organisation operating in a place. Information first, not ads.
+model Business {
+  id          String        @id @default(cuid())
+  slug        String        @unique
+  name        String
+  summary     String        @db.VarChar(300)
+  /// Tiptap JSON
+  about       Json?
+  address     String?
+  latitude    Float?
+  longitude   Float?
+  phone       String?
+  whatsapp    String?
+  email       String?
+  website     String?
+  /// [{ days: ["Mo","Tu",…], opens: "08:00", closes: "21:00" }]
+  openingHours Json?
+  hoursNote   String?
+  /// Short list of what they offer ("Groceries", "Bakery"…)
+  offerings   String[]      @default([])
+  categoryId  String?
+  localityId  String?
+  placeId     String?
+  coverId     String?
+  featured    Boolean       @default(false)
+  status      ContentStatus @default(DRAFT)
+  publishedAt DateTime?
+  verifiedAt  DateTime?
+
+  seoTitle       String?
+  seoDescription String?
+  canonicalUrl   String?
+  noIndex        Boolean @default(false)
+
+  createdById String?
+  updatedById String?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  category  Category? @relation(fields: [categoryId], references: [id], onDelete: SetNull)
+  locality  Locality? @relation(fields: [localityId], references: [id], onDelete: SetNull)
+  place     Place?    @relation(fields: [placeId], references: [id], onDelete: SetNull)
+  cover     Media?    @relation("BusinessCover", fields: [coverId], references: [id], onDelete: Restrict)
+  createdBy User?     @relation("BusinessCreatedBy", fields: [createdById], references: [id], onDelete: SetNull)
+  updatedBy User?     @relation("BusinessUpdatedBy", fields: [updatedById], references: [id], onDelete: SetNull)
+
+  services      Service[]
+  news          NewsArticle[]
+  blogs         BlogPost[]
+  photos        Photo[]
+  contributions Contribution[]
+  corrections   Correction[]
+
+  @@index([status, publishedAt])
+  @@index([categoryId])
+  @@index([localityId])
+  @@index([placeId])
+}
+
+/// "What can I get done?" — provided by an individual or a business.
+model Service {
+  id           String        @id @default(cuid())
+  slug         String        @unique
+  name         String
+  summary      String        @db.VarChar(300)
+  /// Tiptap JSON
+  description  Json?
+  providerType ProviderType  @default(INDIVIDUAL)
+  providerName String
+  businessId   String?
+  serviceArea  String?
+  phone        String?
+  whatsapp     String?
+  availability String?
+  highlights   String[]      @default([])
+  categoryId   String?
+  localityId   String?
+  placeId      String?
+  coverId      String?
+  featured     Boolean       @default(false)
+  status       ContentStatus @default(DRAFT)
+  publishedAt  DateTime?
+  verifiedAt   DateTime?
+
+  seoTitle       String?
+  seoDescription String?
+  canonicalUrl   String?
+  noIndex        Boolean @default(false)
+
+  createdById String?
+  updatedById String?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  business  Business? @relation(fields: [businessId], references: [id], onDelete: SetNull)
+  category  Category? @relation(fields: [categoryId], references: [id], onDelete: SetNull)
+  locality  Locality? @relation(fields: [localityId], references: [id], onDelete: SetNull)
+  place     Place?    @relation(fields: [placeId], references: [id], onDelete: SetNull)
+  cover     Media?    @relation("ServiceCover", fields: [coverId], references: [id], onDelete: Restrict)
+  createdBy User?     @relation("ServiceCreatedBy", fields: [createdById], references: [id], onDelete: SetNull)
+  updatedBy User?     @relation("ServiceUpdatedBy", fields: [updatedById], references: [id], onDelete: SetNull)
+
+  blogs         BlogPost[]
+  photos        Photo[]
+  contributions Contribution[]
+  corrections   Correction[]
+
+  @@index([status, publishedAt])
+  @@index([categoryId])
+  @@index([businessId])
+  @@index([placeId])
+  @@index([localityId])
+}
+
+/// Time-sensitive: "What is happening?"
+model NewsArticle {
+  id          String        @id @default(cuid())
+  slug        String        @unique
+  title       String
+  excerpt     String        @db.VarChar(400)
+  /// Tiptap JSON
+  content     Json
+  /// BCP-47 language of the article body ("en", "hi")
+  language    String        @default("en")
+  sourceName  String?
+  sourceUrl   String?
+  authorId    String?
+  categoryId  String?
+  localityId  String?
+  placeId     String?
+  businessId  String?
+  coverId     String?
+  featured    Boolean       @default(false)
+  status      ContentStatus @default(DRAFT)
+  publishedAt DateTime?
+
+  seoTitle       String?
+  seoDescription String?
+  canonicalUrl   String?
+  noIndex        Boolean @default(false)
+
+  createdById String?
+  updatedById String?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  author    Author?   @relation(fields: [authorId], references: [id], onDelete: SetNull)
+  category  Category? @relation(fields: [categoryId], references: [id], onDelete: SetNull)
+  locality  Locality? @relation(fields: [localityId], references: [id], onDelete: SetNull)
+  place     Place?    @relation(fields: [placeId], references: [id], onDelete: SetNull)
+  business  Business? @relation(fields: [businessId], references: [id], onDelete: SetNull)
+  cover     Media?    @relation("NewsCover", fields: [coverId], references: [id], onDelete: Restrict)
+  createdBy User?     @relation("NewsCreatedBy", fields: [createdById], references: [id], onDelete: SetNull)
+  updatedBy User?     @relation("NewsUpdatedBy", fields: [updatedById], references: [id], onDelete: SetNull)
+  tags      Tag[]
+
+  photos        Photo[]
+  contributions Contribution[]
+  corrections   Correction[]
+
+  @@index([status, publishedAt(sort: Desc)])
+  @@index([categoryId])
+  @@index([placeId])
+  @@index([authorId])
+}
+
+/// Evergreen / informational: "What is worth reading?"
+model BlogPost {
+  id          String        @id @default(cuid())
+  slug        String        @unique
+  title       String
+  excerpt     String        @db.VarChar(400)
+  /// Tiptap JSON
+  content     Json
+  language    String        @default("en")
+  readingMinutes Int        @default(1)
+  authorId    String?
+  categoryId  String?
+  localityId  String?
+  placeId     String?
+  businessId  String?
+  serviceId   String?
+  coverId     String?
+  featured    Boolean       @default(false)
+  status      ContentStatus @default(DRAFT)
+  publishedAt DateTime?
+
+  seoTitle       String?
+  seoDescription String?
+  canonicalUrl   String?
+  noIndex        Boolean @default(false)
+
+  createdById String?
+  updatedById String?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  author    Author?   @relation(fields: [authorId], references: [id], onDelete: SetNull)
+  category  Category? @relation(fields: [categoryId], references: [id], onDelete: SetNull)
+  locality  Locality? @relation(fields: [localityId], references: [id], onDelete: SetNull)
+  place     Place?    @relation(fields: [placeId], references: [id], onDelete: SetNull)
+  business  Business? @relation(fields: [businessId], references: [id], onDelete: SetNull)
+  service   Service?  @relation(fields: [serviceId], references: [id], onDelete: SetNull)
+  cover     Media?    @relation("BlogCover", fields: [coverId], references: [id], onDelete: Restrict)
+  createdBy User?     @relation("BlogCreatedBy", fields: [createdById], references: [id], onDelete: SetNull)
+  updatedBy User?     @relation("BlogUpdatedBy", fields: [updatedById], references: [id], onDelete: SetNull)
+  tags      Tag[]
+
+  photos        Photo[]
+  contributions Contribution[]
+  corrections   Correction[]
+
+  @@index([status, publishedAt(sort: Desc)])
+  @@index([categoryId])
+  @@index([placeId])
+  @@index([authorId])
+}
+
+/// A published photograph. Standalone in the gallery and connected to
+/// the entity it depicts.
+model Photo {
+  id            String        @id @default(cuid())
+  mediaId       String        @unique
+  title         String
+  caption       String?
+  takenAt       DateTime?
+  credit        String?
+  contributorId String?
+  placeId       String?
+  businessId    String?
+  serviceId     String?
+  newsId        String?
+  blogId        String?
+  /// Category of kind PHOTO (gallery filter)
+  categoryId    String?
+  featured      Boolean       @default(false)
+  status        ContentStatus @default(DRAFT)
+  publishedAt   DateTime?
+  createdAt     DateTime      @default(now())
+  updatedAt     DateTime      @updatedAt
+
+  /// Deleting a photo also deletes its media (handled in the API, which
+  /// cleans up Cloudinary); media can't be deleted from under a photo.
+  media       Media        @relation(fields: [mediaId], references: [id], onDelete: Restrict)
+  contributor User?        @relation("PhotoContributor", fields: [contributorId], references: [id], onDelete: SetNull)
+  place       Place?       @relation(fields: [placeId], references: [id], onDelete: SetNull)
+  business    Business?    @relation(fields: [businessId], references: [id], onDelete: SetNull)
+  service     Service?     @relation(fields: [serviceId], references: [id], onDelete: SetNull)
+  news        NewsArticle? @relation(fields: [newsId], references: [id], onDelete: SetNull)
+  blog        BlogPost?    @relation(fields: [blogId], references: [id], onDelete: SetNull)
+  category    Category?    @relation(fields: [categoryId], references: [id], onDelete: SetNull)
+  tags        Tag[]
+
+  contributions Contribution[]
+  corrections   Correction[]
+
+  @@index([status, publishedAt(sort: Desc)])
+  @@index([placeId])
+  @@index([businessId])
+  @@index([serviceId])
+  @@index([newsId])
+  @@index([blogId])
+  @@index([categoryId])
+}
+
+// ─────────────────────────────────────────────────────────────
+// Community: contributions, corrections, contact
+// ─────────────────────────────────────────────────────────────
+
+/// A user-submitted proposal. Never published directly: an admin reviews
+/// it and (on approval) converts it into a DRAFT entity, which is linked
+/// back here. Publishing that entity marks the contribution PUBLISHED.
+model Contribution {
+  id          String             @id @default(cuid())
+  type        ContributionType
+  status      ContributionStatus @default(SUBMITTED)
+  /// Human-readable summary (e.g. the proposed name/title)
+  title       String
+  /// Type-specific, zod-validated submission body
+  payload     Json
+  /// Media uploaded alongside the submission (Cloudinary ids)
+  mediaIds    String[]           @default([])
+  userId      String
+  reviewerId  String?
+  reviewNote  String?
+  submittedAt DateTime           @default(now())
+  reviewedAt  DateTime?
+  updatedAt   DateTime           @updatedAt
+
+  // Resulting entity (set once converted)
+  placeId    String?
+  businessId String?
+  serviceId  String?
+  newsId     String?
+  blogId     String?
+  photoId    String?
+
+  user     User         @relation("ContributionAuthor", fields: [userId], references: [id], onDelete: Cascade)
+  reviewer User?        @relation("ContributionReviewer", fields: [reviewerId], references: [id], onDelete: SetNull)
+  place    Place?       @relation(fields: [placeId], references: [id], onDelete: SetNull)
+  business Business?    @relation(fields: [businessId], references: [id], onDelete: SetNull)
+  service  Service?     @relation(fields: [serviceId], references: [id], onDelete: SetNull)
+  news     NewsArticle? @relation(fields: [newsId], references: [id], onDelete: SetNull)
+  blog     BlogPost?    @relation(fields: [blogId], references: [id], onDelete: SetNull)
+  photo    Photo?       @relation(fields: [photoId], references: [id], onDelete: SetNull)
+
+  @@index([status, submittedAt])
+  @@index([userId, submittedAt])
+  @@index([type])
+  @@index([placeId])
+  @@index([businessId])
+  @@index([serviceId])
+  @@index([newsId])
+  @@index([blogId])
+  @@index([photoId])
+}
+
+/// "Something is wrong / has changed / I own this."
+/// Attached to exactly one published entity via one of the nullable FKs.
+model Correction {
+  id              String           @id @default(cuid())
+  kind            CorrectionKind   @default(CORRECTION)
+  status          CorrectionStatus @default(OPEN)
+  message         String           @db.VarChar(2000)
+  suggestedChange String?          @db.VarChar(2000)
+  evidenceUrl     String?
+  contactPhone    String?
+  userId          String
+  resolverId      String?
+  resolutionNote  String?
+  createdAt       DateTime         @default(now())
+  updatedAt       DateTime         @updatedAt
+  resolvedAt      DateTime?
+
+  placeId    String?
+  businessId String?
+  serviceId  String?
+  newsId     String?
+  blogId     String?
+  photoId    String?
+
+  user     User         @relation("CorrectionAuthor", fields: [userId], references: [id], onDelete: Cascade)
+  resolver User?        @relation("CorrectionResolver", fields: [resolverId], references: [id], onDelete: SetNull)
+  place    Place?       @relation(fields: [placeId], references: [id], onDelete: Cascade)
+  business Business?    @relation(fields: [businessId], references: [id], onDelete: Cascade)
+  service  Service?     @relation(fields: [serviceId], references: [id], onDelete: Cascade)
+  news     NewsArticle? @relation(fields: [newsId], references: [id], onDelete: Cascade)
+  blog     BlogPost?    @relation(fields: [blogId], references: [id], onDelete: Cascade)
+  photo    Photo?       @relation(fields: [photoId], references: [id], onDelete: Cascade)
+
+  @@index([status, createdAt])
+  @@index([userId])
+  @@index([placeId])
+  @@index([businessId])
+  @@index([serviceId])
+  @@index([newsId])
+  @@index([blogId])
+  @@index([photoId])
+}
+
+model ContactMessage {
+  id        String        @id @default(cuid())
+  name      String
+  email     String
+  phone     String?
+  subject   String
+  message   String        @db.VarChar(5000)
+  status    MessageStatus @default(NEW)
+  userId    String?
+  ipHash    String?
+  createdAt DateTime      @default(now())
+
+  user User? @relation(fields: [userId], references: [id], onDelete: SetNull)
+
+  @@index([status, createdAt])
+  @@index([ipHash, createdAt])
+}
+
+// ─────────────────────────────────────────────────────────────
+// Operations
+// ─────────────────────────────────────────────────────────────
+
+/// Old URL → new URL. Created automatically when a slug changes, and for
+/// legacy udhwa.in paths (/news/news-4.html …).
+model Redirect {
+  id        String   @id @default(cuid())
+  fromPath  String   @unique
+  toPath    String
+  permanent Boolean  @default(true)
+  createdAt DateTime @default(now())
+
+  @@index([toPath])
+}
+
+model AuditLog {
+  id         String   @id @default(cuid())
+  actorId    String?
+  action     String
+  entityType String
+  entityId   String?
+  summary    String
+  metadata   Json?
+  createdAt  DateTime @default(now())
+
+  actor User? @relation(fields: [actorId], references: [id], onDelete: SetNull)
+
+  @@index([createdAt])
+  @@index([entityType, entityId])
+}

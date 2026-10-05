@@ -1,0 +1,55 @@
+{
+  "name": "udhwa-api",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Udhwa API — the single backend for udhwa-next, udhwa-admin and future mobile apps",
+  "engines": {
+    "node": ">=20.9.0"
+  },
+  "scripts": {
+    "dev": "tsx watch --clear-screen=false src/index.ts",
+    "build": "tsup",
+    "start": "node dist/index.js",
+    "postinstall": "prisma generate",
+    "db:generate": "prisma generate",
+    "db:migrate": "prisma migrate dev",
+    "db:deploy": "prisma migrate deploy",
+    "db:seed": "tsx prisma/seed.ts",
+    "db:studio": "prisma studio",
+    "contract": "tsx scripts/generate-contract.ts",
+    "typecheck": "tsc --noEmit",
+    "test": "tsx --import ./tests/setup.ts --test tests/*.test.ts",
+    "media:reindex": "tsx scripts/reindex-media-usage.ts",
+    "test:session": "tsx scripts/create-test-session.ts",
+    "mock:providers": "node scripts/mock-providers.mjs"
+  },
+  "dependencies": {
+    "@hono/node-server": "^1.19.0",
+    "@prisma/adapter-pg": "^7.10.0",
+    "@prisma/client": "^7.10.0",
+    "dotenv": "^17.2.0",
+    "hono": "^4.10.0",
+    "jose": "^6.1.0",
+    "pg": "^8.23.1",
+    "slugify": "^1.6.9",
+    "zod": "^4.6.5"
+  },
+  "devDependencies": {
+    "@prisma/driver-adapter-utils": "^7.10.0",
+    "@prisma/schema-engine-wasm": "7.10.0-4.0edf323efd1d98336f3f0a68684b56f689b900d3",
+    "@tiptap/extension-highlight": "^3.31.4",
+    "@tiptap/extension-image": "^3.31.4",
+    "@tiptap/extension-table": "^3.31.4",
+    "@tiptap/html": "^3.31.4",
+    "@tiptap/pm": "^3.31.4",
+    "@tiptap/starter-kit": "^3.31.4",
+    "@types/node": "^20",
+    "@types/pg": "^8.20.0",
+    "happy-dom": "^20.0.0",
+    "prisma": "^7.10.0",
+    "tsup": "^8.5.0",
+    "tsx": "^4.20.0",
+    "typescript": "^5.9.0"
+  }
+}

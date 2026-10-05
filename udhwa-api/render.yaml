@@ -1,0 +1,48 @@
+# Render Blueprint for udhwa-api.
+# Render → New → Blueprint → pick the repo and set "Blueprint Path" to udhwa-api/render.yaml.
+# (Or create a Web Service by hand with Root Directory "udhwa-api" and the same commands.)
+services:
+  - type: web
+    name: udhwa-api
+    runtime: node
+    rootDir: udhwa-api
+    plan: starter
+    region: singapore
+    buildCommand: npm ci --include=dev && npm run build
+    # Runs after a successful build, before the new version takes traffic.
+    preDeployCommand: npx prisma migrate deploy && npm run media:reindex
+    startCommand: npm start
+    healthCheckPath: /health
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: NODE_VERSION
+        value: "22"
+      - key: DATABASE_URL        # Neon pooled connection string
+        sync: false
+      - key: DIRECT_URL          # Neon direct connection string (migrations)
+        sync: false
+      - key: WEB_URL             # e.g. https://udhwa.in (udhwa-next on Vercel)
+        sync: false
+      - key: ADMIN_URL           # e.g. https://admin.udhwa.in (udhwa-admin on Vercel)
+        sync: false
+      - key: ALLOWED_ORIGINS     # optional, comma separated (Vercel preview URLs)
+        sync: false
+      - key: SESSION_SECRET
+        generateValue: true
+      - key: REVALIDATE_SECRET   # copy the same value into udhwa-next on Vercel
+        sync: false
+      - key: GOOGLE_CLIENT_ID
+        sync: false
+      - key: GOOGLE_CLIENT_SECRET
+        sync: false
+      - key: GOOGLE_MOBILE_CLIENT_IDS
+        sync: false
+      - key: ADMIN_EMAILS
+        sync: false
+      - key: CLOUDINARY_CLOUD_NAME
+        sync: false
+      - key: CLOUDINARY_API_KEY
+        sync: false
+      - key: CLOUDINARY_API_SECRET
+        sync: false

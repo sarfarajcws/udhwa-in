@@ -1,0 +1,20 @@
+// Mobile navigation regression test: the menu panel must be visible and usable.
+import { chromium } from 'playwright';
+import { tmpdir } from 'node:os';
+const SHOTS = process.env.SHOTS_DIR || tmpdir();
+const B = process.env.WEB_URL ?? 'http://localhost:3000';
+const browser = await chromium.launch({ executablePath: process.env.CHROMIUM_PATH || undefined });
+const page = await (await browser.newContext({ viewport: { width: 390, height: 800 }, hasTouch: true, isMobile: true })).newPage();
+await page.goto(B + '/news');
+await page.click('button[aria-label="Open menu"]');
+const panel = page.locator('#mobile-nav');
+const box = await panel.boundingBox();
+console.log('panel height:', Math.round(box.height), box.height > 500 ? 'OK' : 'BROKEN');
+await page.screenshot({ path: SHOTS + '/mobile-nav-open.png' });
+console.log('scroll locked:', await page.evaluate(() => document.body.style.overflow === 'hidden'));
+await page.locator('#mobile-nav a', { hasText: 'Businesses' }).tap();
+await page.waitForURL('**/businesses');
+console.log('navigated to', new URL(page.url()).pathname, '| menu closed:', (await panel.count()) === 0, '| scroll restored:', await page.evaluate(() => document.body.style.overflow === ''));
+await page.click('button[aria-label="Open menu"]'); await page.keyboard.press('Escape');
+console.log('escape closes:', (await panel.count()) === 0);
+await browser.close();

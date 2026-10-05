@@ -1,0 +1,132 @@
+@import "tailwindcss";
+@import "@fontsource-variable/figtree";
+@import "@fontsource-variable/noto-sans-devanagari";
+
+/*
+ * Udhwa design foundation — intentionally small.
+ * Personality comes from photography, content and composition;
+ * the tokens are just a calm, warm base with Udhwa Blue and Warm Amber.
+ */
+@theme {
+  --font-sans: "Figtree Variable", "Noto Sans Devanagari Variable", ui-sans-serif, system-ui, sans-serif;
+
+  --color-brand-50: #eff5ff;
+  --color-brand-100: #dbe7fe;
+  --color-brand-200: #bfd4fe;
+  --color-brand-500: #3b82f6;
+  --color-brand-600: #2563eb;
+  --color-brand-700: #1d4ed8;
+  --color-brand-800: #1e40af;
+
+  --color-amber-50: #fffaeb;
+  --color-amber-100: #fef0c7;
+  --color-amber-400: #fbbf24;
+  --color-amber-500: #f59e0b;
+  --color-amber-700: #b45309;
+
+  /* Warm neutrals */
+  --color-canvas: #faf8f5;
+  --color-surface: #ffffff;
+  --color-sunken: #f3f0eb;
+  --color-line: #e8e3db;
+  --color-line-strong: #d6cfc4;
+  --color-ink: #1f2328;
+  --color-ink-soft: #3d4148;
+  --color-muted: #6b6760;
+
+  --radius-card: 0.75rem;
+}
+
+@layer base {
+  html {
+    -webkit-text-size-adjust: 100%;
+    scroll-padding-top: 5rem;
+  }
+  body {
+    background: var(--color-canvas);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    font-feature-settings: "ss01";
+    text-rendering: optimizeLegibility;
+  }
+  :focus-visible {
+    outline: 2px solid var(--color-brand-600);
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+  ::selection {
+    background: var(--color-amber-100);
+  }
+}
+
+@layer components {
+  .container-page {
+    @apply mx-auto w-full max-w-6xl px-4 sm:px-6 lg:px-8;
+  }
+  .eyebrow {
+    @apply text-xs font-semibold tracking-[0.08em] text-muted uppercase;
+  }
+  .link {
+    @apply text-brand-700 underline decoration-brand-200 underline-offset-4 hover:decoration-brand-600;
+  }
+  .card {
+    @apply rounded-[var(--radius-card)] border border-line bg-surface;
+  }
+  .field {
+    @apply block w-full rounded-lg border border-line-strong bg-surface px-3 py-2.5 text-[15px] text-ink placeholder:text-muted/70 focus:border-brand-600 focus:ring-2 focus:ring-brand-100 focus:outline-none disabled:bg-sunken;
+  }
+  .label {
+    @apply mb-1.5 block text-sm font-medium text-ink-soft;
+  }
+  .hint {
+    @apply mt-1 text-xs text-muted;
+  }
+}
+
+/* ── Long-form content ───────────────────────────────────── */
+.prose-udhwa {
+  font-size: 1.0625rem;
+  line-height: 1.75;
+  color: var(--color-ink-soft);
+  overflow-wrap: break-word;
+}
+.prose-udhwa > * + * { margin-top: 1.1em; }
+.prose-udhwa h2 { margin-top: 2em; font-size: 1.45rem; line-height: 1.3; font-weight: 700; color: var(--color-ink); letter-spacing: -0.01em; }
+.prose-udhwa h3 { margin-top: 1.6em; font-size: 1.2rem; line-height: 1.35; font-weight: 650; color: var(--color-ink); }
+.prose-udhwa h4 { margin-top: 1.4em; font-size: 1.05rem; font-weight: 650; color: var(--color-ink); }
+.prose-udhwa h2 + *, .prose-udhwa h3 + *, .prose-udhwa h4 + * { margin-top: 0.6em; }
+.prose-udhwa strong { color: var(--color-ink); font-weight: 650; }
+.prose-udhwa a { color: var(--color-brand-700); text-decoration: underline; text-decoration-color: var(--color-brand-200); text-underline-offset: 3px; }
+.prose-udhwa a:hover { text-decoration-color: var(--color-brand-600); }
+.prose-udhwa ul, .prose-udhwa ol { padding-left: 1.4em; }
+.prose-udhwa ul { list-style: disc; }
+.prose-udhwa ol { list-style: decimal; }
+.prose-udhwa li + li { margin-top: 0.35em; }
+.prose-udhwa li::marker { color: var(--color-amber-500); }
+.prose-udhwa blockquote { border-left: 3px solid var(--color-amber-400); background: var(--color-amber-50); padding: 0.9em 1.1em; border-radius: 0 0.5rem 0.5rem 0; color: var(--color-ink-soft); }
+.prose-udhwa blockquote > * + * { margin-top: 0.5em; }
+.prose-udhwa mark { background: var(--color-amber-100); color: inherit; padding: 0 0.15em; border-radius: 0.2em; }
+.prose-udhwa code { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 0.88em; background: var(--color-sunken); padding: 0.1em 0.35em; border-radius: 0.3em; }
+.prose-udhwa pre { background: #1f2328; color: #f3f0eb; padding: 1em 1.2em; border-radius: 0.6rem; overflow-x: auto; font-size: 0.9rem; line-height: 1.6; }
+.prose-udhwa pre code { background: none; padding: 0; color: inherit; }
+.prose-udhwa hr { border: 0; border-top: 1px solid var(--color-line); margin: 2.2em 0; }
+.prose-udhwa figure { margin: 1.8em 0; }
+.prose-udhwa figure img { border-radius: 0.6rem; width: 100%; height: auto; }
+.prose-udhwa figcaption { margin-top: 0.5em; font-size: 0.875rem; color: var(--color-muted); }
+.prose-udhwa .table-wrap { overflow-x: auto; border: 1px solid var(--color-line); border-radius: 0.6rem; }
+.prose-udhwa table { width: 100%; border-collapse: collapse; font-size: 0.95rem; }
+.prose-udhwa th, .prose-udhwa td { border-bottom: 1px solid var(--color-line); padding: 0.6em 0.8em; text-align: left; vertical-align: top; }
+.prose-udhwa th { background: var(--color-sunken); color: var(--color-ink); font-weight: 600; }
+.prose-udhwa td > p, .prose-udhwa th > p { margin: 0; }
+
+/* Devanagari reads better a touch larger and looser */
+:lang(hi) .prose-udhwa, .prose-udhwa:lang(hi) { font-size: 1.125rem; line-height: 1.9; }
+
+/* ── Tiptap editor surface (admin) ───────────────────────── */
+.tiptap { outline: none; min-height: 180px; }
+.tiptap p.is-editor-empty:first-child::before { content: attr(data-placeholder); color: var(--color-muted); float: left; height: 0; pointer-events: none; }
+.tiptap img { max-width: 100%; border-radius: 0.5rem; }
+.tiptap img.ProseMirror-selectednode { outline: 3px solid var(--color-brand-500); }
+.tiptap table { border-collapse: collapse; width: 100%; }
+.tiptap td, .tiptap th { border: 1px solid var(--color-line-strong); padding: 0.4em 0.6em; min-width: 3em; }
+.tiptap .selectedCell { background: var(--color-brand-50); }
