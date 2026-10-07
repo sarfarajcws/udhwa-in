@@ -66,6 +66,7 @@ export function toFormValues(def: EntityDef, row: Record<string, unknown>) {
     if (f.type === "datetime") values[f.name] = toLocalInput(v as Date | null);
     else if (f.type === "tags") values[f.name] = ((row.tags as { name: string }[] | undefined) ?? []).map((t) => t.name).join(", ");
     else if (f.type === "list") values[f.name] = ((v as string[] | undefined) ?? []).join("\n");
+    else if (f.type === "multiselect" && f.name === "relatedBlogIds") values[f.name] = ((row.relatedTo as { id: string }[] | undefined) ?? []).map((r) => r.id);
     else if (f.type === "hours") values[f.name] = v ? JSON.stringify(v) : "";
     else if (f.type === "number") values[f.name] = v ?? "";
     else values[f.name] = v ?? (f.type === "checkbox" ? false : f.type === "rich" ? null : "");

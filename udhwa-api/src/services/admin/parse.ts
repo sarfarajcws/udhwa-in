@@ -38,6 +38,14 @@ function asString(v: unknown) {
 }
 
 function parseField(f: FieldDef, rawValue: unknown, all: Input): { value?: unknown; error?: string } {
+  if (f.type === "multiselect") {
+    // Repeated form fields arrive as an array; JSON clients may send an array or a comma list.
+    const list = (Array.isArray(rawValue) ? rawValue : typeof rawValue === "string" ? rawValue.split(",") : []).map((v) => String(v).trim()).filter(Boolean);
+    const ids = [...new Set(list)];
+    if (ids.some((v) => !ID.test(v))) return { error: "Invalid selection" };
+    if (f.max && ids.length > f.max) return { error: `Choose at most ${f.max}` };
+    return { value: ids };
+  }
   const raw = asString(rawValue);
   const str = raw.trim();
   const empty = str === "";

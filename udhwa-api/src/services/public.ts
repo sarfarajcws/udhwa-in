@@ -272,18 +272,23 @@ export const getBlog = async (slug: string) => {
       place: liveLink({ name: true, slug: true, summary: true }),
       business: liveLink({ name: true, slug: true }),
       service: liveLink({ name: true, slug: true }),
+      relatedTo: { where: live(), select: blogCard, orderBy: { publishedAt: "desc" }, take: 6 },
+      relatedFrom: { where: live(), select: blogCard, orderBy: { publishedAt: "desc" }, take: 6 },
     },
   });
   if (!found) return null;
-  const post = liveLinks(found, ["place", "business", "service"]);
-  const related = await db.blogPost.findMany({
+  const { relatedTo, relatedFrom, ...rest } = found;
+  const post = liveLinks(rest, ["place", "business", "service"]);
+  // Hand-picked related posts first (either direction), then automatic ones by category/tags.
+  const picked = [...relatedTo, ...relatedFrom].filter((b, i, all) => all.findIndex((x) => x.id === b.id) === i);
+  const auto = await db.blogPost.findMany({
     where: {
-      id: { not: post.id }, ...live(),
+      id: { notIn: [post.id, ...picked.map((b) => b.id)] }, ...live(),
       OR: [{ categoryId: post.categoryId ?? undefined }, { tags: { some: { slug: { in: post.tags.map((t) => t.slug) } } } }],
     },
-    select: blogCard, orderBy: { publishedAt: "desc" }, take: 3,
+    select: blogCard, orderBy: { publishedAt: "desc" }, take: Math.max(0, 3 - picked.length),
   });
-  return { post, related };
+  return { post, related: [...picked, ...auto] };
 };
 
 export const getPhoto = async (id: string) => {

@@ -67,7 +67,11 @@ export async function newEntityMeta(key: EntityKey) {
 export async function getEntity(key: EntityKey, id: string) {
   const def = ENTITIES[key];
   const hasTags = def.fields.some((f) => f.type === "tags");
-  const row = await delegate(key).findUnique({ where: { id }, include: hasTags ? { tags: { select: { name: true } } } : undefined });
+  const include = {
+    ...(hasTags ? { tags: { select: { name: true } } } : {}),
+    ...(key === "blog" ? { relatedTo: { select: { id: true } } } : {}),
+  };
+  const row = await delegate(key).findUnique({ where: { id }, include: Object.keys(include).length ? include : undefined });
   if (!row) throw notFound();
   const link = { [LINK_FIELD[key]]: id };
   const [options, library, contributions, corrections, history] = await Promise.all([
@@ -77,6 +81,8 @@ export async function getEntity(key: EntityKey, id: string) {
     db.correction.findMany({ where: link, orderBy: { createdAt: "desc" }, include: { user: { select: { name: true } } } }),
     db.auditLog.findMany({ where: { entityId: id }, orderBy: { createdAt: "desc" }, take: 15, include: { actor: { select: { name: true } } } }),
   ]);
+  // A post can't be related to itself.
+  if (key === "blog" && options.blog) options.blog = options.blog.filter((o) => o.value !== id);
   return {
     row: {
       id, title: String(row[def.titleField]), slug: (row.slug as string | undefined) ?? null, status: row.status as ContentStatus,
@@ -123,6 +129,15 @@ export async function saveEntity(admin: CurrentUser, key: EntityKey, id: string 
   const { usage } = await resolveRichImages(Object.fromEntries(richFields.map((n) => [n, data[n] as RichDoc | null])), { previous: existing ?? undefined });
 
   const tags = def.fields.some((f) => f.type === "tags") ? tagsInput(parsed.tags, existing ? "update" : "create") : undefined;
+  // Related blogs: only existing posts, never itself.
+  let relatedTo: { set?: { id: string }[]; connect?: { id: string }[] } | undefined;
+  if (key === "blog") {
+    const wanted = ((data.relatedBlogIds as string[] | undefined) ?? []).filter((r) => r !== id);
+    const found = wanted.length ? await db.blogPost.findMany({ where: { id: { in: wanted } }, select: { id: true } }) : [];
+    const ids = wanted.filter((w) => found.some((f) => f.id === w)).map((r) => ({ id: r }));
+    relatedTo = existing ? { set: ids } : { connect: ids };
+    delete data.relatedBlogIds;
+  }
   const statusData =
     intent === "publish" ? statusPatch("PUBLISHED", { publishedAt: (data.publishedAt as Date | null) ?? (existing?.publishedAt as Date | null) }) : {};
   if (key === "photo") delete data.publishedAt;
@@ -136,7 +151,7 @@ export async function saveEntity(admin: CurrentUser, key: EntityKey, id: string 
     const saved = existing
       ? await t.update({
           where: { id },
-          data: { ...data, ...statusData, ...(tags ? { tags } : {}), ...(key === "photo" ? {} : { updatedById: admin.id }) },
+          data: { ...data, ...statusData, ...(tags ? { tags } : {}), ...(relatedTo ? { relatedTo } : {}), ...(key === "photo" ? {} : { updatedById: admin.id }) },
         })
       : await t.create({
           data: {
@@ -144,6 +159,7 @@ export async function saveEntity(admin: CurrentUser, key: EntityKey, id: string 
             status: "DRAFT",
             ...statusData,
             ...(tags ? { tags } : {}),
+            ...(relatedTo ? { relatedTo } : {}),
             ...(key === "photo" ? { contributorId: admin.id } : { createdById: admin.id, updatedById: admin.id }),
           },
         });

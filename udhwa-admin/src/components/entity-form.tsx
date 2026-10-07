@@ -9,6 +9,7 @@ import { cn } from "@/lib/utils";
 import { adminBtn, adminInput, adminLabel } from "./ui";
 import { HoursEditor } from "./hours-editor";
 import { MediaPicker } from "./media-picker";
+import { MultiSelect } from "./multi-select";
 
 type Values = Record<string, unknown>;
 
@@ -87,6 +88,11 @@ export function EntityForm({
             {opts.map((o) => <option key={o.value} value={o.value}>{o.label}</option>)}
           </select>
         );
+        break;
+      }
+      case "multiselect": {
+        const opts = Array.isArray(f.options) ? f.options : (options[f.options as keyof OptionMap] ?? []);
+        input = <MultiSelect id={id} name={f.name} options={opts} initial={Array.isArray(val) ? (val as string[]) : []} max={f.max} />;
         break;
       }
       case "media":

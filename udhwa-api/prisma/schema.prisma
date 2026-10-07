@@ -602,6 +602,11 @@ model BlogPost {
   updatedBy User?     @relation("BlogUpdatedBy", fields: [updatedById], references: [id], onDelete: SetNull)
   tags      Tag[]
 
+  /// Hand-picked "related blogs" chosen by the editor (shown first under
+  /// "Keep reading"; the link works in both directions).
+  relatedTo   BlogPost[] @relation("RelatedBlogs")
+  relatedFrom BlogPost[] @relation("RelatedBlogs")
+
   photos        Photo[]
   contributions Contribution[]
   corrections   Correction[]

@@ -14,7 +14,7 @@ export type FieldDef = {
   label: string;
   type:
     | "text" | "textarea" | "slug" | "url" | "tel" | "email" | "number"
-    | "rich" | "media" | "select" | "tags" | "list" | "hours" | "checkbox" | "datetime";
+    | "rich" | "media" | "select" | "multiselect" | "tags" | "list" | "hours" | "checkbox" | "datetime";
   required?: boolean;
   max?: number;
   hint?: string;
@@ -164,6 +164,7 @@ export const ENTITIES: Record<EntityKey, EntityDef> = {
       { name: "placeId", label: "Related place", type: "select", options: "place", group: "relations", half: true },
       { name: "businessId", label: "Related business", type: "select", options: "business", group: "relations", half: true },
       { name: "serviceId", label: "Related service", type: "select", options: "service", group: "relations" },
+      { name: "relatedBlogIds", label: "Related blogs", type: "multiselect", options: "blog", max: 6, group: "relations", hint: "Up to 6. Shown first under “Keep reading” on this post (and this post on theirs)." },
       { name: "publishedAt", label: "Publish date", type: "datetime", group: "publishing", hint: "Leave empty to use the moment you publish." },
       { name: "featured", label: "Featured", type: "checkbox", group: "publishing" },
       ...seo,
