@@ -148,6 +148,7 @@ Playwright needs Chromium (`npx playwright install chromium` once, or set `CHROM
 | Website | `API_URL` | The Render URL of the API (server-side only). |
 | Website | `NEXT_PUBLIC_SITE_URL`, `NEXT_PUBLIC_ADMIN_URL`, `NEXT_PUBLIC_CONTACT_EMAIL` | Public URLs and contact address. |
 | Website | `REVALIDATE_SECRET` | Same value as on the API (server-side only). |
+| Website | `NEXT_PUBLIC_GA_MEASUREMENT_ID` | Google Analytics 4 ID (`G-…`). Optional; set on Vercel **Production** only so local and preview visits aren't counted. |
 | Admin | `API_URL`, `NEXT_PUBLIC_SITE_URL`, `NEXT_PUBLIC_ADMIN_URL` | As above. Admin access itself is configured on the API. |
 
 No secret is ever exposed to the browser: only `NEXT_PUBLIC_*` values (URLs and the contact email) reach client code.
