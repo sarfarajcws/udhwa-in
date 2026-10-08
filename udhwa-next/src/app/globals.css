@@ -130,3 +130,12 @@
 .tiptap table { border-collapse: collapse; width: 100%; }
 .tiptap td, .tiptap th { border: 1px solid var(--color-line-strong); padding: 0.4em 0.6em; min-width: 3em; }
 .tiptap .selectedCell { background: var(--color-brand-50); }
+
+/* Horizontal chip rows: still swipeable, but without a visible scrollbar. */
+@utility no-scrollbar {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}

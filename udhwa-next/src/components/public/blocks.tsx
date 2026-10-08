@@ -53,19 +53,19 @@ export function FilterChips({ items, active, makeHref, allLabel = "All" }: {
 }) {
   const chip = (isActive: boolean) =>
     cn(
-      "inline-flex h-9 shrink-0 items-center rounded-full border px-3.5 text-sm font-medium transition-colors",
+      "inline-flex h-9 shrink-0 items-center rounded-full border px-3.5 text-sm font-medium whitespace-nowrap transition-colors",
       isActive ? "border-ink bg-ink text-white" : "border-line-strong bg-surface text-ink-soft hover:border-ink/40",
     );
   return (
-    <nav aria-label="Filter by category" className="-mx-4 overflow-x-auto px-4 sm:mx-0 sm:px-0">
-      <ul className="flex gap-2 pb-1">
-        <li>
+    <nav aria-label="Filter by category" className="no-scrollbar -mx-4 overflow-x-auto px-4 sm:mx-0 sm:px-0">
+      <ul className="flex w-max gap-2 pr-4 sm:pr-0">
+        <li className="shrink-0">
           <Link href={makeHref(undefined)} className={chip(!active)} aria-current={!active ? "true" : undefined}>
             {allLabel}
           </Link>
         </li>
         {items.map((c) => (
-          <li key={c.slug}>
+          <li key={c.slug} className="shrink-0">
             <Link href={makeHref(c.slug)} className={chip(active === c.slug)} aria-current={active === c.slug ? "true" : undefined}>
               {c.name}
             </Link>

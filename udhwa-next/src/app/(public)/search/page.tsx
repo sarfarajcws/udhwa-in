@@ -43,10 +43,10 @@ export default async function SearchPage({ searchParams }: PageProps<"/search">)
       <SearchForm defaultValue={q} className="mt-5 max-w-2xl" kind={kind} />
 
       {q && (
-        <nav aria-label="Filter results" className="-mx-4 mt-6 overflow-x-auto px-4 sm:mx-0 sm:px-0">
-          <ul className="flex gap-2">
+        <nav aria-label="Filter results" className="no-scrollbar -mx-4 mt-6 overflow-x-auto px-4 sm:mx-0 sm:px-0">
+          <ul className="flex w-max gap-2 pr-4 sm:pr-0">
             {[{ kind: undefined, label: "Everything" }, ...SEARCH_KINDS].map((k) => (
-              <li key={k.label}>
+              <li key={k.label} className="shrink-0">
                 <Link
                   href={listHref("/search", { q, type: k.kind })}
                   className={cn(
