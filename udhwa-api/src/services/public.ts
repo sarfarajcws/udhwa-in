@@ -1,4 +1,5 @@
 import { db, type CategoryKind, type Prisma } from "@/db";
+import { redirectCandidates, trimTrailingSlash } from "@/lib/redirect-path";
 
 /**
  * Read-side queries for the public site (served under /v1/*). Everything here only returns
@@ -320,7 +321,18 @@ export const getAuthor = async (slug: string) => {
 
 /** Old URL → new URL (slug changes, legacy .html paths). */
 export async function findRedirect(path: string) {
-  return db.redirect.findUnique({ where: { fromPath: path } });
+  const candidates = redirectCandidates(path);
+  if (!candidates.length) return null;
+  // Exact match first (the common case, uses the unique index) …
+  const exact = await db.redirect.findMany({ where: { fromPath: { in: candidates } } });
+  const hit = candidates.map((c) => exact.find((r) => r.fromPath === c)).find(Boolean);
+  if (hit) return hit;
+  // … then ignore letter case and a trailing slash (old links are often typed or crawled that way).
+  const trimmed = trimTrailingSlash(candidates[candidates.length - 1]!);
+  return db.redirect.findFirst({
+    where: { OR: [{ fromPath: { equals: trimmed, mode: "insensitive" } }, { fromPath: { equals: `${trimmed}/`, mode: "insensitive" } }] },
+    orderBy: { createdAt: "asc" },
+  });
 }
 
 /** Every published, indexable entity for the sitemap. */

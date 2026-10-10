@@ -121,6 +121,7 @@ for (const p of ['/places/no-such-place', '/businesses/nope', '/services/nope', 
 }
 const nf = await open(page, abs('/places/no-such-place'));
 check(nf.status() === 404 && (await page.locator('text=We couldn’t find that page').count()) === 1, '404 page renders with the site header and a search box');
+check((await page.locator('header').count()) === 1 && (await page.locator('footer').count()) === 1 && (await page.locator('main').count()) === 1, '404 page inside a section has exactly one header, footer and <main>');
 
 section('Legacy udhwa.in URLs');
 const legacy = [

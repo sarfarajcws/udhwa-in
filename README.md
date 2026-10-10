@@ -170,7 +170,7 @@ To sign in on Vercel preview deployments, add their origins to `ALLOWED_ORIGINS`
 
 ### Old URLs
 
-Legacy `udhwa.in/*.html` pages redirect to their new pages (308), the old ICT article (still a draft) temporarily redirects to `/news` (307), links that never had content (`/downloads.html`, `/important-numbers.html`, …) return a proper 404, old `/images/…` files with an identical replacement redirect to `/seed/…`, slug changes create 308 redirects automatically (chain-free), deleted content 404s (its redirects are removed), and `/admin/*` on the website redirects to the admin app.
+Legacy `udhwa.in/*.html` pages redirect to their new pages (308; lookups ignore letter case, a trailing slash and percent-encoding, and retry once if the API is slow; migration `20261010060000_legacy_redirects_repair` restores the section and article redirects on databases seeded with `--minimal`), the old ICT article (still a draft) temporarily redirects to `/news` (307), links that never had content (`/downloads.html`, `/important-numbers.html`, …) return a proper 404, old `/images/…` files with an identical replacement redirect to `/seed/…`, slug changes create 308 redirects automatically (chain-free), deleted content 404s (its redirects are removed), and `/admin/*` on the website redirects to the admin app.
 
 ---
 

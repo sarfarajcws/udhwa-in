@@ -1,5 +1,6 @@
 import { z } from "zod";
 import { db, type MessageStatus } from "@/db";
+import { trimTrailingSlash } from "@/lib/redirect-path";
 import { slugify } from "@/lib/utils";
 import { audit } from "../../lib/audit";
 import { deleteUserSessions, type CurrentUser } from "../../lib/auth";
@@ -226,6 +227,9 @@ export async function listRedirects() {
 
 export async function saveRedirect(admin: CurrentUser, input: Input) {
   const data = parse(z.object({ fromPath: pathSchema, toPath: pathSchema, permanent: checkbox.optional().default(false) }), input);
+  // A trailing slash would make the entry unreachable (lookups are trimmed the same way).
+  data.fromPath = trimTrailingSlash(data.fromPath);
+  data.toPath = trimTrailingSlash(data.toPath);
   if (data.fromPath === data.toPath) throw badRequest("From and to can’t be the same.");
   await db.redirect.upsert({ where: { fromPath: data.fromPath }, update: data, create: data });
   await audit({ actorId: admin.id, action: "redirect.save", entityType: "Redirect", summary: `${data.fromPath} → ${data.toPath}` });

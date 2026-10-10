@@ -38,5 +38,6 @@ export const search = (q: string, type?: string) => freshApi.get<SearchResult>("
 export const getSitemapData = () => publicApi.get<SitemapData>("/v1/sitemap", { next: { revalidate: 3600, tags: ["content"] } });
 
 export async function findRedirect(path: string) {
-  return (await publicApi.get<RedirectResult>("/v1/redirects/resolve", { query: { path } })).redirect;
+  // Uncached: a cached "no redirect" would hide a redirect an admin has just added.
+  return (await freshApi.get<RedirectResult>("/v1/redirects/resolve", { query: { path } })).redirect;
 }
