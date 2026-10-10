@@ -38,6 +38,9 @@ export const search = (q: string, type?: string) => freshApi.get<SearchResult>("
 export const getSitemapData = () => publicApi.get<SitemapData>("/v1/sitemap", { next: { revalidate: 3600, tags: ["content"] } });
 
 export async function findRedirect(path: string) {
-  // Uncached: a cached "no redirect" would hide a redirect an admin has just added.
-  return (await freshApi.get<RedirectResult>("/v1/redirects/resolve", { query: { path } })).redirect;
+  // Must stay on publicApi (ISR-cacheable, tagged "content"): this runs inside statically
+  // rendered detail pages, and an uncached/no-store fetch there turns every unknown slug into
+  // an HTTP 500 ("Page changed from static to dynamic at runtime"). The API revalidates the
+  // "content" tag whenever a redirect is saved or deleted, so new redirects still apply at once.
+  return (await publicApi.get<RedirectResult>("/v1/redirects/resolve", { query: { path } })).redirect;
 }

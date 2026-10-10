@@ -233,6 +233,7 @@ export async function saveRedirect(admin: CurrentUser, input: Input) {
   if (data.fromPath === data.toPath) throw badRequest("From and to can’t be the same.");
   await db.redirect.upsert({ where: { fromPath: data.fromPath }, update: data, create: data });
   await audit({ actorId: admin.id, action: "redirect.save", entityType: "Redirect", summary: `${data.fromPath} → ${data.toPath}` });
+  revalidateWeb("redirect"); // detail pages cache redirect lookups under the "content" tag
   return { ok: true, message: "Saved." };
 }
 
@@ -240,6 +241,7 @@ export async function deleteRedirect(_admin: CurrentUser, id: string) {
   await db.redirect.delete({ where: { id } }).catch(() => {
     throw notFound();
   });
+  revalidateWeb("redirect");
   return { ok: true };
 }
 

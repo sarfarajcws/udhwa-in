@@ -13,6 +13,7 @@
     "lint": "eslint src",
     "typecheck": "next typegen && tsc --noEmit",
     "test": "tsx --test tests/*.test.ts",
+    "e2e:not-found": "node e2e/not-found.mjs",
     "e2e": "node e2e/user-flow.mjs && node e2e/public-flow.mjs && node e2e/mobile-responsive.mjs"
   },
   "dependencies": {
