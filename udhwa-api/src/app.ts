@@ -3,7 +3,7 @@ import { bodyLimit } from "hono/body-limit";
 import { cors } from "hono/cors";
 import { logger } from "hono/logger";
 import { secureHeaders } from "hono/secure-headers";
-import { db } from "./db";
+import { db } from "@/db";
 import { allowedOrigins, isProd } from "./env";
 import { csrf, loadUser, type AppEnv } from "./lib/context";
 import { HttpError } from "./lib/http";
